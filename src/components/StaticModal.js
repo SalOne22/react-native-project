@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 
-export const StaticModal = ({ children }) => {
-  return <View style={styles.modal}>{children}</View>;
+export const StaticModal = ({ children, style }) => {
+  return <View style={[styles.modal, style]}>{children}</View>;
 };
 
 const styles = StyleSheet.create({
