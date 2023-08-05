@@ -1,42 +1,63 @@
-import { Text, ImageBackground, View, StyleSheet, Image } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import bgImage from '../../assets/images/PhotoBG.jpg';
 import userProfileImage from '../../assets/images/userProfile.jpg';
 import { RegistrationProfileImage } from '../components/RegistrationProfileImage';
+import { Background } from '../components/Background';
+import { Header } from '../components/Header';
+import { Input } from '../components/Input';
+import { PasswordInput } from '../components/PasswordInput';
+import { Button } from '../components/Button';
+import { LinkButton } from '../components/LinkButton';
+import { StaticModal } from '../components/StaticModal';
 
 export default function RegistrationScreen() {
   return (
-    <ImageBackground style={styles.container} source={bgImage}>
-      <View style={styles.modal}>
+    // Магическое число ✨
+    // TODO: Надо заменить это на высоту от последнего инпута до конца контейнера
+    <Background image={bgImage} verticalOffset={-160}>
+      <StaticModal>
         {/* Убрать source - появиться пустая картинка */}
         <RegistrationProfileImage
           style={styles.userProfileImage}
           source={userProfileImage}
         />
-        <Text style={styles.headerText}>Реєстрація</Text>
-      </View>
-    </ImageBackground>
+        <Header style={styles.headerText} title={'Реєстрація'} />
+        <Input style={styles.input} placeholder="Логін" />
+        <Input style={styles.input} placeholder="Адреса електронної пошти" />
+        <PasswordInput style={styles.passwordInput} />
+        <Button style={styles.registerButton} title={'Зареєструватися'} />
+        <LinkButton
+          textStyle={styles.loginButton}
+          title={'Вже є аккаунт? Увійти'}
+        />
+      </StaticModal>
+    </Background>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
-  modal: {
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    paddingHorizontal: 16,
-    paddingBottom: 45,
-  },
   userProfileImage: {
     marginBottom: 32,
   },
   headerText: {
-    color: '#212121',
+    marginBottom: 33,
+  },
+  input: {
+    marginBottom: 16,
+  },
+  passwordInput: {
+    marginBottom: 43,
+  },
+  registerButton: {
+    marginBottom: 16,
+  },
+  loginButton: {
     textAlign: 'center',
-    fontFamily: 'Roboto-Medium',
-    fontSize: 30,
   },
 });
