@@ -6,7 +6,7 @@ export const PasswordInput = ({ style }) => {
   return (
     <View style={[styles.passwordWrapper, style]}>
       <Input placeholder="Пароль" />
-      <LinkButton style={styles.showButton} title={'Показати'} />
+      <LinkButton style={styles.showButton}>Показати</LinkButton>
     </View>
   );
 };

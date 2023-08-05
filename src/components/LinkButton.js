@@ -1,9 +1,9 @@
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export const LinkButton = ({ style, textStyle, title }) => {
+export const LinkButton = ({ style, textStyle, children }) => {
   return (
     <TouchableOpacity style={style} activeOpacity={0.6}>
-      <Text style={[styles.link, textStyle]}>{title}</Text>
+      <Text style={[styles.link, textStyle]}>{children}</Text>
     </TouchableOpacity>
   );
 };

@@ -1,12 +1,4 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-import bgImage from '../../assets/images/PhotoBG.jpg';
-import userProfileImage from '../../assets/images/userProfile.jpg';
+import { StyleSheet } from 'react-native';
 import { RegistrationProfileImage } from '../components/RegistrationProfileImage';
 import { Background } from '../components/Background';
 import { Header } from '../components/Header';
@@ -15,6 +7,8 @@ import { PasswordInput } from '../components/PasswordInput';
 import { Button } from '../components/Button';
 import { LinkButton } from '../components/LinkButton';
 import { StaticModal } from '../components/StaticModal';
+import bgImage from '../../assets/images/PhotoBG.jpg';
+import userProfileImage from '../../assets/images/userProfile.jpg';
 
 export default function RegistrationScreen() {
   return (
@@ -32,10 +26,9 @@ export default function RegistrationScreen() {
         <Input style={styles.input} placeholder="Адреса електронної пошти" />
         <PasswordInput style={styles.passwordInput} />
         <Button style={styles.registerButton} title={'Зареєструватися'} />
-        <LinkButton
-          textStyle={styles.loginButton}
-          title={'Вже є аккаунт? Увійти'}
-        />
+        <LinkButton textStyle={styles.loginButton}>
+          Вже є аккаунт? Увійти
+        </LinkButton>
       </StaticModal>
     </Background>
   );
