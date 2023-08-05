@@ -10,7 +10,9 @@ import bgImage from '../../assets/images/PhotoBG.jpg';
 
 export default function LoginScreen() {
   return (
-    <Background image={bgImage} verticalOffset={-160}>
+    // Магическое число ✨
+    // TODO: Надо заменить это на высоту от последнего инпута до конца контейнера
+    <Background image={bgImage} verticalOffset={-226}>
       <StaticModal style={styles.modal}>
         <Header style={styles.header} title={'Увійти'} />
         <Input style={styles.input} placeholder={'Адреса електронної пошти'} />
