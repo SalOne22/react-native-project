@@ -9,5 +9,9 @@ export const LinkButton = ({ style, textStyle, children }) => {
 };
 
 const styles = StyleSheet.create({
-  link: { color: '#1b4371', fontFamily: 'Roboto-Regular' },
+  link: {
+    color: '#1b4371',
+    fontFamily: 'Roboto-Regular',
+    fontSize: 16,
+  },
 });

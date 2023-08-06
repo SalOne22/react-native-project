@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     fontFamily: 'Roboto-Regular',
+    fontSize: 16,
     color: '#212121',
   },
   focused: {

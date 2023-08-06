@@ -17,7 +17,10 @@ const styles = StyleSheet.create({
   },
   showButton: {
     position: 'absolute',
-    top: 16,
+    top: 0,
     right: 16,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
   },
 });

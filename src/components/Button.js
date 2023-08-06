@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fff',
     fontFamily: 'Roboto-Regular',
+    fontSize: 16,
   },
 });
