@@ -8,17 +8,17 @@ import {
 } from 'react-native';
 
 export const Background = ({ children, image, verticalOffset }) => (
-  <KeyboardAvoidingView
-    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    style={styles.container}
-    keyboardVerticalOffset={verticalOffset}
-  >
-    <ImageBackground style={styles.bgImage} source={image}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+      keyboardVerticalOffset={verticalOffset}
+    >
+      <ImageBackground style={styles.bgImage} source={image}>
         {children}
-      </TouchableWithoutFeedback>
-    </ImageBackground>
-  </KeyboardAvoidingView>
+      </ImageBackground>
+    </KeyboardAvoidingView>
+  </TouchableWithoutFeedback>
 );
 
 const styles = StyleSheet.create({
