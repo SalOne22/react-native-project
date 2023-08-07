@@ -7,21 +7,19 @@ import { PasswordInput } from '../components/PasswordInput';
 import { Button } from '../components/Button';
 import { LinkButton } from '../components/LinkButton';
 import bgImage from '../../assets/images/PhotoBG.jpg';
-import { useForm } from '../hooks';
+import { Controller, useForm } from 'react-hook-form';
 
 export default function LoginScreen() {
-  const { state, dispatch, submit } = useForm(
-    {
+  const { control, handleSubmit, reset } = useForm({
+    defaultValues: {
       email: '',
       password: '',
     },
-    console.log
-  );
+  });
 
-  const createChangeHandler = (type) => {
-    return (text) => {
-      dispatch({ type: type, payload: text });
-    };
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
   };
 
   return (
@@ -30,19 +28,40 @@ export default function LoginScreen() {
     <Background image={bgImage} verticalOffset={-226}>
       <StaticModal style={styles.modal}>
         <Header style={styles.header} title="Увійти" />
-        <Input
-          style={styles.input}
-          autoComplete="email"
-          placeholder="Адреса електронної пошти"
-          value={state.email}
-          onChangeText={createChangeHandler('update_email')}
+
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              style={styles.input}
+              autoComplete="email"
+              placeholder="Адреса електронної пошти"
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="email"
         />
-        <PasswordInput
-          style={styles.password}
-          value={state.password}
-          onChangeText={createChangeHandler('update_password')}
+
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <PasswordInput
+              style={styles.password}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="password"
         />
-        <Button style={styles.loginButton} title="Увійти" onPress={submit} />
+
+        <Button
+          style={styles.loginButton}
+          title="Увійти"
+          onPress={handleSubmit(onSubmit)}
+        />
         <LinkButton textStyle={styles.registrationButton}>
           Немає аккаунту?{' '}
           <Text style={styles.registrationLink}>Зареєструватися</Text>

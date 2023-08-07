@@ -9,22 +9,20 @@ import { LinkButton } from '../components/LinkButton';
 import { StaticModal } from '../components/StaticModal';
 import bgImage from '../../assets/images/PhotoBG.jpg';
 import userProfileImage from '../../assets/images/userProfile.jpg';
-import { useForm } from '../hooks';
+import { Controller, useForm } from 'react-hook-form';
 
 export default function RegistrationScreen() {
-  const { state, dispatch, submit } = useForm(
-    {
+  const { control, handleSubmit, reset } = useForm({
+    defaultValues: {
       username: '',
       email: '',
       password: '',
     },
-    console.log
-  );
+  });
 
-  const createChangeHandler = (type) => {
-    return (text) => {
-      dispatch({ type: type, payload: text });
-    };
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
   };
 
   return (
@@ -38,30 +36,53 @@ export default function RegistrationScreen() {
           source={userProfileImage}
         />
         <Header style={styles.headerText} title="Реєстрація" />
-        <Input
-          style={styles.input}
-          autoComplete="username"
-          placeholder="Логін"
-          value={state.username}
-          onChangeText={createChangeHandler('update_username')}
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              style={styles.input}
+              autoComplete="username"
+              placeholder="Логін"
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="username"
         />
-        <Input
-          style={styles.input}
-          autoComplete="email"
-          placeholder="Адреса електронної пошти"
-          value={state.email}
-          onChangeText={createChangeHandler('update_email')}
+
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              style={styles.input}
+              autoComplete="email"
+              placeholder="Адреса електронної пошти"
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="email"
         />
-        <PasswordInput
-          style={styles.passwordInput}
-          isNew
-          value={state.password}
-          onChangeText={createChangeHandler('update_password')}
+
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          render={({ field: { onChange, value } }) => (
+            <PasswordInput
+              style={styles.password}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="password"
         />
+
         <Button
           style={styles.registerButton}
           title="Зареєструватися"
-          onPress={submit}
+          onPress={handleSubmit(onSubmit)}
         />
         <LinkButton textStyle={styles.loginButton}>
           Вже є аккаунт? Увійти

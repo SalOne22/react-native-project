@@ -14,8 +14,8 @@ export default function App() {
     return null;
   }
 
-  return <RegistrationScreen />;
-  // return <LoginScreen />;
+  // return <RegistrationScreen />;
+  return <LoginScreen />;
 
   // Тут пока ничего нет
   // return <PostsScreen />;
