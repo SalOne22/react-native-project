@@ -7,8 +7,23 @@ import { PasswordInput } from '../components/PasswordInput';
 import { Button } from '../components/Button';
 import { LinkButton } from '../components/LinkButton';
 import bgImage from '../../assets/images/PhotoBG.jpg';
+import { useForm } from '../hooks';
 
 export default function LoginScreen() {
+  const { state, dispatch, submit } = useForm(
+    {
+      email: '',
+      password: '',
+    },
+    console.log
+  );
+
+  const createChangeHandler = (type) => {
+    return (text) => {
+      dispatch({ type: type, payload: text });
+    };
+  };
+
   return (
     // Магическое число ✨
     // TODO: Надо заменить это на высоту от последнего инпута до конца контейнера
@@ -19,9 +34,15 @@ export default function LoginScreen() {
           style={styles.input}
           autoComplete="email"
           placeholder="Адреса електронної пошти"
+          value={state.email}
+          onChangeText={createChangeHandler('update_email')}
         />
-        <PasswordInput style={styles.password} />
-        <Button style={styles.loginButton} title="Увійти" />
+        <PasswordInput
+          style={styles.password}
+          value={state.password}
+          onChangeText={createChangeHandler('update_password')}
+        />
+        <Button style={styles.loginButton} title="Увійти" onPress={submit} />
         <LinkButton textStyle={styles.registrationButton}>
           Немає аккаунту?{' '}
           <Text style={styles.registrationLink}>Зареєструватися</Text>
