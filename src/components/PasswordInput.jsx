@@ -8,11 +8,7 @@ export const PasswordInput = ({ style }) => {
 
   return (
     <View style={[styles.passwordWrapper, style]}>
-      <Input
-        placeholder="Пароль"
-        type="password"
-        secureTextEntry={!isPasswordShown}
-      />
+      <Input placeholder="Пароль" type="password" hidden={!isPasswordShown} />
       <LinkButton
         style={styles.showButton}
         onPress={() => setIsPasswordShown((prev) => !prev)}

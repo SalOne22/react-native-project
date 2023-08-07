@@ -21,11 +21,15 @@ export default function RegistrationScreen() {
           style={styles.userProfileImage}
           source={userProfileImage}
         />
-        <Header style={styles.headerText} title={'Реєстрація'} />
-        <Input style={styles.input} placeholder="Логін" />
-        <Input style={styles.input} placeholder="Адреса електронної пошти" />
+        <Header style={styles.headerText} title="Реєстрація" />
+        <Input style={styles.input} type="username" placeholder="Логін" />
+        <Input
+          style={styles.input}
+          type="emailAddress"
+          placeholder="Адреса електронної пошти"
+        />
         <PasswordInput style={styles.passwordInput} />
-        <Button style={styles.registerButton} title={'Зареєструватися'} />
+        <Button style={styles.registerButton} title="Зареєструватися" />
         <LinkButton textStyle={styles.loginButton}>
           Вже є аккаунт? Увійти
         </LinkButton>

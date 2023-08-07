@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export const Input = ({ style, placeholder, type, ...props }) => {
+export const Input = ({ style, placeholder, type, hidden }) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ export const Input = ({ style, placeholder, type, ...props }) => {
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       textContentType={type}
-      {...props}
+      secureTextEntry={hidden}
     />
   );
 };

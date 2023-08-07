@@ -14,10 +14,14 @@ export default function LoginScreen() {
     // TODO: Надо заменить это на высоту от последнего инпута до конца контейнера
     <Background image={bgImage} verticalOffset={-226}>
       <StaticModal style={styles.modal}>
-        <Header style={styles.header} title={'Увійти'} />
-        <Input style={styles.input} placeholder={'Адреса електронної пошти'} />
+        <Header style={styles.header} title="Увійти" />
+        <Input
+          style={styles.input}
+          type="emailAddress"
+          placeholder="Адреса електронної пошти"
+        />
         <PasswordInput style={styles.password} />
-        <Button style={styles.loginButton} title={'Увійти'} />
+        <Button style={styles.loginButton} title="Увійти" />
         <LinkButton textStyle={styles.registrationButton}>
           Немає аккаунту?{' '}
           <Text style={styles.registrationLink}>Зареєструватися</Text>
