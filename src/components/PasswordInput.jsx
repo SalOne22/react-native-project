@@ -4,20 +4,20 @@ import { LinkButton } from './LinkButton';
 import { useState } from 'react';
 
 export const PasswordInput = ({ style }) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   return (
     <View style={[styles.passwordWrapper, style]}>
       <Input
         placeholder="Пароль"
         type="password"
-        secureTextEntry={!showPassword}
+        secureTextEntry={!isPasswordShown}
       />
       <LinkButton
         style={styles.showButton}
-        onPress={() => setShowPassword((prev) => !prev)}
+        onPress={() => setIsPasswordShown((prev) => !prev)}
       >
-        {showPassword ? 'Сховати' : 'Показати'}
+        {isPasswordShown ? 'Сховати' : 'Показати'}
       </LinkButton>
     </View>
   );
