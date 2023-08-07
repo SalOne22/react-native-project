@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export const Input = ({ style, placeholder }) => {
+export const Input = ({ style, placeholder, type, ...props }) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -11,6 +11,8 @@ export const Input = ({ style, placeholder }) => {
       placeholderTextColor={'#bdbdbd'}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
+      textContentType={type}
+      {...props}
     />
   );
 };
