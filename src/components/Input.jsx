@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export const Input = ({ style, placeholder, autoComplete, hidden }) => {
+export const Input = ({
+  style,
+  placeholder,
+  autoComplete,
+  hidden,
+  value,
+  onChangeText,
+}) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -13,6 +20,8 @@ export const Input = ({ style, placeholder, autoComplete, hidden }) => {
       onBlur={() => setFocused(false)}
       secureTextEntry={hidden}
       autoComplete={autoComplete}
+      value={value}
+      onChangeText={onChangeText}
     />
   );
 };

@@ -3,7 +3,12 @@ import { Input } from './Input';
 import { LinkButton } from './LinkButton';
 import { useState } from 'react';
 
-export const PasswordInput = ({ style, isNew = false }) => {
+export const PasswordInput = ({
+  style,
+  value,
+  onChangeText,
+  isNew = false,
+}) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   return (
@@ -12,6 +17,8 @@ export const PasswordInput = ({ style, isNew = false }) => {
         placeholder="Пароль"
         autoComplete={isNew ? 'new-password' : 'current-password'}
         hidden={!isPasswordShown}
+        value={value}
+        onChangeText={onChangeText}
       />
       <LinkButton
         style={styles.showButton}
