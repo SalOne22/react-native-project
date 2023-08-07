@@ -71,7 +71,7 @@ export default function RegistrationScreen() {
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
             <PasswordInput
-              style={styles.password}
+              style={styles.passwordInput}
               onChangeText={onChange}
               value={value}
             />
