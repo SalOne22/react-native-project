@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { useReducer } from 'react';
 import { RegistrationProfileImage } from '../components/RegistrationProfileImage';
 import { Background } from '../components/Background';
 import { Header } from '../components/Header';
@@ -55,7 +54,7 @@ export default function RegistrationScreen() {
         />
         <PasswordInput
           style={styles.passwordInput}
-          isNew={true}
+          isNew
           value={state.password}
           onChangeText={createChangeHandler('update_password')}
         />

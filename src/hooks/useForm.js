@@ -2,8 +2,7 @@ import { useReducer } from 'react';
 
 export const useForm = (initialState, onSubmit) => {
   const reducer = (state, action) => {
-    if (!action.type.startsWith('update_'))
-      throw new Error(`${action.type} is not valid type`);
+    if (!action.type.startsWith('update_')) throw new Error('Unknown action.');
 
     const field = action.type.replace('update_', '');
 
