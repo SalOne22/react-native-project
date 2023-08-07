@@ -3,12 +3,16 @@ import { Input } from './Input';
 import { LinkButton } from './LinkButton';
 import { useState } from 'react';
 
-export const PasswordInput = ({ style }) => {
+export const PasswordInput = ({ style, isNew = false }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   return (
     <View style={[styles.passwordWrapper, style]}>
-      <Input placeholder="Пароль" type="password" hidden={!isPasswordShown} />
+      <Input
+        placeholder="Пароль"
+        autoComplete={isNew ? 'new-password' : 'current-password'}
+        hidden={!isPasswordShown}
+      />
       <LinkButton
         style={styles.showButton}
         onPress={() => setIsPasswordShown((prev) => !prev)}

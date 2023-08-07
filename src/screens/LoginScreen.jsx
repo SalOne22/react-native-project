@@ -17,7 +17,7 @@ export default function LoginScreen() {
         <Header style={styles.header} title="Увійти" />
         <Input
           style={styles.input}
-          type="emailAddress"
+          autoComplete="email"
           placeholder="Адреса електронної пошти"
         />
         <PasswordInput style={styles.password} />
