@@ -1,4 +1,6 @@
 import { StyleSheet } from 'react-native';
+import { Controller, useForm } from 'react-hook-form';
+import { useNavigation } from '@react-navigation/native';
 import { RegistrationProfileImage } from '../components/RegistrationProfileImage';
 import { Background } from '../components/Background';
 import { Header } from '../components/Header';
@@ -9,9 +11,10 @@ import { LinkButton } from '../components/LinkButton';
 import { StaticModal } from '../components/StaticModal';
 import bgImage from '../../assets/images/PhotoBG.jpg';
 import userProfileImage from '../../assets/images/userProfile.jpg';
-import { Controller, useForm } from 'react-hook-form';
 
 export default function RegistrationScreen() {
+  const navigation = useNavigation();
+
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       username: '',
@@ -23,6 +26,7 @@ export default function RegistrationScreen() {
   const onSubmit = (data) => {
     console.log(data);
     reset();
+    navigation.navigate('Home');
   };
 
   return (
@@ -84,7 +88,10 @@ export default function RegistrationScreen() {
           title="Зареєструватися"
           onPress={handleSubmit(onSubmit)}
         />
-        <LinkButton textStyle={styles.loginButton}>
+        <LinkButton
+          onPress={() => navigation.navigate('Login')}
+          textStyle={styles.loginButton}
+        >
           Вже є аккаунт? Увійти
         </LinkButton>
       </StaticModal>
