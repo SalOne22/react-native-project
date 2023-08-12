@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
 
-export const PostsScreen = () => {
+export default function PostsScreen() {
   return <Text>PostsScreen</Text>;
-};
+}
