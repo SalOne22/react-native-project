@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import RegistrationScreen from './src/screens/RegistrationScreen';
 import LoginScreen from './src/screens/LoginScreen';
-import { PostsScreen } from './src/screens/PostsScreen';
+import Home from './src/screens/Home';
 
 const MainStack = createStackNavigator();
 
@@ -21,10 +21,15 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <MainStack.Navigator initialRouteName="Login">
+      <MainStack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <MainStack.Screen name="Registration" component={RegistrationScreen} />
         <MainStack.Screen name="Login" component={LoginScreen} />
-        <MainStack.Screen name="Posts" component={PostsScreen} />
+        <MainStack.Screen name="Home" component={Home} />
       </MainStack.Navigator>
     </NavigationContainer>
   );
