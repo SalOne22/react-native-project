@@ -13,6 +13,7 @@ export default function App() {
     'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
     'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <MainStack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Home"
         screenOptions={{
           headerShown: false,
         }}
