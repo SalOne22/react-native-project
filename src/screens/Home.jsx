@@ -26,7 +26,16 @@ export default function Home() {
         headerTitleContainerStyle: {
           paddingVertical: 11,
         },
+
+        tabBarStyle: {
+          shadowColor: 'rgba(0 0 0 / 0.3)',
+          shadowOffset: '0px -0.5px 0px 0px',
+          height: 58,
+        },
         tabBarShowLabel: false,
+        tabBarItemStyle: {
+          padding: 8,
+        },
       }}
     >
       <Tab.Screen
