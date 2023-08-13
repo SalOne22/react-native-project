@@ -39,7 +39,9 @@ export default function Home() {
             paddingVertical: 10,
             right: 16,
           },
-          tabBarIcon: () => <Feather name="grid" size={24} color="black" />,
+          tabBarIcon: () => (
+            <Feather name="grid" size={24} color="rgba(33 33 33 / 0.8)" />
+          ),
         }}
       />
     </Tab.Navigator>
