@@ -1,7 +1,12 @@
-import { StyleSheet, View } from 'react-native';
+import { Keyboard, StyleSheet, View } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export const Container = ({ children }) => {
-  return <View style={styles.container}>{children}</View>;
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>{children}</View>
+    </TouchableWithoutFeedback>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -9,6 +14,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingHorizontal: 16,
     paddingVertical: 32,
-    flex: 1,
+    height: '100%',
   },
 });
