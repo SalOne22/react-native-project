@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { Feather } from '@expo/vector-icons';
 import { ChangeablePostImage } from '../components/ChangeablePostImage';
