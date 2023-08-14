@@ -9,6 +9,7 @@ export const GhostInput = ({
   value,
   onChangeText,
   icon,
+  accent = false,
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -19,6 +20,7 @@ export const GhostInput = ({
           styles.container,
           styles.input,
           focused && styles.focused,
+          accent && styles.accent,
           style,
         ]}
         placeholder={placeholder}
@@ -36,7 +38,7 @@ export const GhostInput = ({
     <View style={[styles.container, focused && styles.focused, style]}>
       <View style={styles.iconContainer}>{icon}</View>
       <TextInput
-        style={[styles.input, { marginLeft: 28 }]}
+        style={[styles.input, accent && styles.accent, { marginLeft: 28 }]}
         placeholder={placeholder}
         placeholderTextColor={'#bdbdbd'}
         onFocus={() => setFocused(true)}
@@ -72,5 +74,8 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     justifyContent: 'center',
+  },
+  accent: {
+    fontFamily: 'Roboto-Medium',
   },
 });
