@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
-import { RegistrationProfileImage } from '../components/RegistrationProfileImage';
+import { ChangeableProfileImage } from '../components/ChangeableProfileImage';
 import { Background } from '../components/Background';
 import { Header } from '../components/Header';
 import { Input } from '../components/Input';
@@ -35,7 +35,7 @@ export default function RegistrationScreen() {
     <Background image={bgImage} verticalOffset={-160}>
       <StaticModal>
         {/* Убрать source - появиться пустая картинка */}
-        <RegistrationProfileImage
+        <ChangeableProfileImage
           style={styles.userProfileImage}
           source={userProfileImage}
         />

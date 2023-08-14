@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export const RegistrationProfileImage = ({ style, source }) => {
+export const ChangeableProfileImage = ({ style, source }) => {
   return (
     <View style={[styles.userImageContainer, style]}>
       {source && <Image style={styles.userImage} source={source} />}
