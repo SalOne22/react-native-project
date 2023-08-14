@@ -33,10 +33,10 @@ export const GhostInput = ({
     );
 
   return (
-    <View style={[styles.container, style]}>
+    <View style={[styles.container, focused && styles.focused, style]}>
       <View style={styles.iconContainer}>{icon}</View>
       <TextInput
-        style={[styles.input, { marginLeft: 28 }, focused && styles.focused]}
+        style={[styles.input, { marginLeft: 28 }]}
         placeholder={placeholder}
         placeholderTextColor={'#bdbdbd'}
         onFocus={() => setFocused(true)}
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
     color: '#212121',
   },
   focused: {
-    backgroundColor: '#fff',
     borderColor: '#ff6c00',
   },
   iconContainer: {
