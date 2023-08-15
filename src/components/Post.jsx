@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
   },
   bottomContent: {
     flexDirection: 'row',
+    gap: 24,
   },
   item: {
     flexDirection: 'row',
