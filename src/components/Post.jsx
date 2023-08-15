@@ -1,0 +1,77 @@
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+
+export const Post = ({ image, title, comments, likes = null, location }) => {
+  return (
+    <View>
+      <Image style={styles.image} source={image} />
+      <Text style={styles.title}>{title}</Text>
+      <View style={styles.bottomContent}>
+        <View style={styles.item}>
+          <Feather
+            name="message-circle"
+            size={24}
+            color={comments > 0 ? '#ff6c00' : '#bdbdbd'}
+          />
+          <Text style={[styles.itemText, comments > 0 && styles.accent]}>
+            {comments}
+          </Text>
+        </View>
+        {likes !== null && (
+          <View style={styles.item}>
+            <Feather
+              name="thumbs-up"
+              size={24}
+              color={likes > 0 ? '#ff6c00' : '#bdbdbd'}
+            />
+            <Text style={[styles.itemText, likes > 0 && styles.accent]}>
+              {likes}
+            </Text>
+          </View>
+        )}
+        <View style={[styles.item, styles.locationItem]}>
+          <Feather name="map-pin" size={24} color="#bdbdbd" />
+          <Text style={[styles.itemText, styles.locationItemText]}>
+            {location}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  image: {
+    width: '100%',
+    height: 240,
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  title: {
+    color: '#212121',
+    fontFamily: 'Roboto-Medium',
+    marginBottom: 8,
+  },
+  bottomContent: {
+    flexDirection: 'row',
+  },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  itemText: {
+    color: '#bdbdbd',
+    fontFamily: 'Roboto-Regular',
+    marginLeft: 6,
+  },
+  accent: {
+    color: '#212121',
+  },
+  locationItem: {
+    marginLeft: 'auto',
+  },
+  locationItemText: {
+    color: '#212121',
+    textDecorationLine: 'underline',
+  },
+});
