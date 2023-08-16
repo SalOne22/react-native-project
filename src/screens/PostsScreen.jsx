@@ -7,7 +7,7 @@ import userProfileImage from '../../assets/images/userProfile.jpg';
 
 export default function PostsScreen() {
   return (
-    <Container>
+    <Container style={styles.container}>
       <UserProfileInfo
         style={styles.userProfile}
         profileImage={userProfileImage}
@@ -20,6 +20,9 @@ export default function PostsScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 0,
+  },
   userProfile: {
     marginBottom: 32,
   },

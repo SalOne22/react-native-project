@@ -1,10 +1,10 @@
 import { Keyboard, StyleSheet, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-export const Container = ({ children }) => {
+export const Container = ({ style, children }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>{children}</View>
+      <View style={[styles.container, style]}>{children}</View>
     </TouchableWithoutFeedback>
   );
 };
