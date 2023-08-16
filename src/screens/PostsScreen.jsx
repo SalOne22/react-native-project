@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { UserProfileInfo } from '../components/UserProfileInfo';
 import { Container } from '../components/ui/Container';
-import { PostList } from '../components/PostList/PostList';
+import { PostList } from '../components/PostList';
 import { posts } from '../mock/posts';
 import userProfileImage from '../../assets/images/userProfile.jpg';
 
