@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <Tab.Navigator
       initialRouteName="Posts"
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerStyle: {
           shadowColor: 'rgba(0 0 0 / 0.3)',
           shadowOffset: '0px 0.5px 0px 0px',
@@ -49,10 +49,37 @@ export default function Home() {
           height: 58,
         },
         tabBarShowLabel: false,
-        tabBarItemStyle: {
-          padding: 8,
+        tabBarIcon: ({ focused }) => {
+          let name;
+
+          switch (route.name) {
+            case 'Posts':
+              name = 'grid';
+              break;
+            case 'CreatePost':
+              name = 'plus';
+              break;
+            case 'Profile':
+              name = 'user';
+              break;
+          }
+
+          return (
+            <Feather
+              style={{
+                backgroundColor: focused && '#FF6C00',
+                width: 70,
+                borderRadius: 20,
+                paddingVertical: 8,
+                textAlign: 'center',
+              }}
+              name={name}
+              size={24}
+              color={focused ? '#fff' : '#212121'}
+            />
+          );
         },
-      }}
+      })}
     >
       <Tab.Screen
         name="Posts"
@@ -64,9 +91,6 @@ export default function Home() {
             paddingVertical: 10,
             right: 16,
           },
-          tabBarIcon: () => (
-            <Feather name="grid" size={24} color="rgba(33 33 33 / 0.8)" />
-          ),
           headerLeft: null,
         }}
       />
@@ -78,12 +102,6 @@ export default function Home() {
           tabBarStyle: {
             display: 'none',
           },
-          tabBarIcon: () => <Feather name="plus" size={24} color="#fff" />,
-          tabBarIconStyle: {
-            backgroundColor: '#FF6C00',
-            width: 70,
-            borderRadius: 20,
-          },
         }}
       />
       <Tab.Screen
@@ -92,9 +110,6 @@ export default function Home() {
         options={{
           title: 'Профіль',
           headerShown: false,
-          tabBarIcon: () => (
-            <Feather name="user" size={24} color="rgba(33 33 33 / 0.8)" />
-          ),
         }}
       />
     </Tab.Navigator>
