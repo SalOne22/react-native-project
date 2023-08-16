@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+import { LogoutButton } from '../components/ui/LogoutButton';
+import { IconButton } from '../components/ui/IconButton';
 import PostsScreen from './PostsScreen';
 import CreatePostsScreen from './CreatePostsScreen';
-import { LogoutButton } from '../components/LogoutButton';
-import { IconButton } from '../components/IconButton';
+import ProfileScreen from './ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -83,6 +84,18 @@ export default function Home() {
             width: 70,
             borderRadius: 20,
           },
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          title: 'Створити публікацію',
+          headerShown: false,
+          tabBarIcon: () => (
+            <Feather name="user" size={24} color="rgba(33 33 33 / 0.8)" />
+          ),
+          tabBarItemStyle: {},
         }}
       />
     </Tab.Navigator>
