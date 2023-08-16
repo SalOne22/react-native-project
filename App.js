@@ -2,8 +2,8 @@ import 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import RegistrationScreen from './src/screens/RegistrationScreen';
-import LoginScreen from './src/screens/LoginScreen';
+import RegistrationScreen from './src/screens/auth/RegistrationScreen';
+import LoginScreen from './src/screens/auth/LoginScreen';
 import Home from './src/screens/Home';
 
 const MainStack = createStackNavigator();
