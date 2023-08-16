@@ -90,12 +90,11 @@ export default function Home() {
         name="Profile"
         component={ProfileScreen}
         options={{
-          title: 'Створити публікацію',
+          title: 'Профіль',
           headerShown: false,
           tabBarIcon: () => (
             <Feather name="user" size={24} color="rgba(33 33 33 / 0.8)" />
           ),
-          tabBarItemStyle: {},
         }}
       />
     </Tab.Navigator>
