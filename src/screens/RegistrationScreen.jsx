@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
-import { ChangeableProfileImage } from '../components/ChangeableProfileImage';
-import { Background } from '../components/Background';
-import { Header } from '../components/Header';
-import { Input } from '../components/Input';
-import { PasswordInput } from '../components/PasswordInput';
-import { Button } from '../components/Button';
-import { LinkButton } from '../components/LinkButton';
-import { StaticModal } from '../components/StaticModal';
+import { ChangeableProfileImage } from '../components/form/ChangeableProfileImage';
+import { Background } from '../components/ui/Background';
+import { Header } from '../components/ui/Header';
+import { Input } from '../components/form/Input';
+import { PasswordInput } from '../components/form/PasswordInput';
+import { Button } from '../components/ui/Button';
+import { LinkButton } from '../components/ui/LinkButton';
+import { StaticModal } from '../components/ui/StaticModal';
 import bgImage from '../../assets/images/PhotoBG.jpg';
 import userProfileImage from '../../assets/images/userProfile.jpg';
 

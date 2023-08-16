@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Input } from './Input';
-import { LinkButton } from './LinkButton';
+import { LinkButton } from '../ui/LinkButton';
 import { useState } from 'react';
 
 export const PasswordInput = ({

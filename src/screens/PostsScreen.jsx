@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { UserProfileInfo } from '../components/UserProfileInfo';
-import { ScrollContainer } from '../components/ScrollContainer';
+import { ScrollContainer } from '../components/ui/ScrollContainer';
 import { PostList } from '../components/PostList';
 import { posts } from '../mock/posts';
 import userProfileImage from '../../assets/images/userProfile.jpg';
