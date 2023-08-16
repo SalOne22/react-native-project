@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { UserProfileInfo } from '../components/UserProfileInfo';
-import { ScrollContainer } from '../components/ui/ScrollContainer';
-import { PostList } from '../components/PostList';
+import { Container } from '../components/ui/Container';
+import { PostList } from '../components/PostList/PostList';
 import { posts } from '../mock/posts';
 import userProfileImage from '../../assets/images/userProfile.jpg';
 
 export default function PostsScreen() {
   return (
-    <ScrollContainer>
+    <Container>
       <UserProfileInfo
         style={styles.userProfile}
         profileImage={userProfileImage}
@@ -15,7 +15,7 @@ export default function PostsScreen() {
         email="email@example.com"
       />
       <PostList posts={posts} />
-    </ScrollContainer>
+    </Container>
   );
 }
 

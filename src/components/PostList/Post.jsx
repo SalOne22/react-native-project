@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons';
 
 export const Post = ({ image, title, comments, likes = null, location }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Image style={styles.image} source={image} />
       <Text style={styles.title}>{title}</Text>
       <View style={styles.bottomContent}>
@@ -41,6 +41,9 @@ export const Post = ({ image, title, comments, likes = null, location }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 32,
+  },
   image: {
     width: '100%',
     height: 240,

@@ -1,27 +1,28 @@
-import { StyleSheet, View } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 import { Post } from './Post';
 
 export const PostList = ({ posts = [] }) => {
   return (
-    <View style={styles.list}>
-      {posts.map(({ id, title, image, comments, likes, location }) => (
-        <Post
-          key={id}
-          title={title}
-          image={image}
-          comments={comments}
-          likes={likes}
-          location={location}
-        />
-      ))}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={posts}
+        renderItem={({ item: { comments, image, location, title, likes } }) => (
+          <Post
+            comments={comments}
+            image={image}
+            location={location}
+            title={title}
+            likes={likes}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  list: {
-    gap: 32,
-    // Хак, чтобы было видно все посты
-    paddingBottom: 64,
+  container: {
+    flex: 1,
   },
 });
