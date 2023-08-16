@@ -1,7 +1,15 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-export const Post = ({ image, title, comments, likes = null, location }) => {
+export const Post = ({
+  image,
+  title,
+  comments,
+  likes,
+  location,
+  isLiked = false,
+  showLikes = true,
+}) => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
@@ -17,12 +25,12 @@ export const Post = ({ image, title, comments, likes = null, location }) => {
             {comments}
           </Text>
         </View>
-        {likes !== null && (
+        {showLikes && (
           <View style={styles.item}>
             <Feather
               name="thumbs-up"
               size={24}
-              color={likes > 0 ? '#ff6c00' : '#bdbdbd'}
+              color={isLiked ? '#ff6c00' : '#bdbdbd'}
             />
             <Text style={[styles.itemText, likes > 0 && styles.accent]}>
               {likes}
@@ -31,7 +39,10 @@ export const Post = ({ image, title, comments, likes = null, location }) => {
         )}
         <View style={[styles.item, styles.locationItem]}>
           <Feather name="map-pin" size={24} color="#bdbdbd" />
-          <Text style={[styles.itemText, styles.locationItemText]}>
+          <Text
+            style={[styles.itemText, styles.locationItemText]}
+            numberOfLines={1}
+          >
             {location}
           </Text>
         </View>
@@ -73,6 +84,7 @@ const styles = StyleSheet.create({
   },
   locationItem: {
     marginLeft: 'auto',
+    maxWidth: '70%',
   },
   locationItemText: {
     color: '#212121',
