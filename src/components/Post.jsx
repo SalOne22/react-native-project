@@ -40,7 +40,11 @@ export const Post = ({
         <View style={[styles.item, styles.locationItem]}>
           <Feather name="map-pin" size={24} color="#bdbdbd" />
           <Text
-            style={[styles.itemText, styles.locationItemText]}
+            style={[
+              styles.itemText,
+              styles.locationItemText,
+              !showLikes && styles.withoutLikes,
+            ]}
             numberOfLines={1}
           >
             {location}
@@ -85,6 +89,9 @@ const styles = StyleSheet.create({
   locationItem: {
     marginLeft: 'auto',
     maxWidth: '70%',
+  },
+  withoutLikes: {
+    maxWidth: '100%',
   },
   locationItemText: {
     color: '#212121',
