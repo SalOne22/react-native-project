@@ -6,6 +6,7 @@ export const posts = [
     image: postImage,
     title: 'Ліс',
     comments: 0,
+    likes: 0,
     location: "Ivano-Frankivs'k Region, Ukraine",
   },
   {
@@ -13,6 +14,7 @@ export const posts = [
     image: postImage,
     title: 'Замок у Карпатах',
     comments: 2,
+    likes: 60,
     location: 'Zakarpattia Region, Ukraine',
   },
   {
@@ -20,6 +22,8 @@ export const posts = [
     image: postImage,
     title: 'Природа Карпат',
     comments: 5,
+    likes: 3,
+    isLiked: true,
     location: 'Lviv Region, Ukraine',
   },
   {
@@ -27,6 +31,7 @@ export const posts = [
     image: postImage,
     title: 'Гірське озеро',
     comments: 1,
+    likes: 2,
     location: 'Chernivtsi Region, Ukraine',
   },
   {
@@ -34,6 +39,7 @@ export const posts = [
     image: postImage,
     title: 'Карпатський пейзаж',
     comments: 3,
+    likes: 15,
     location: 'Ternopil Region, Ukraine',
   },
 ];
