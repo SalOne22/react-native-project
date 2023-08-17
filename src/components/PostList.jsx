@@ -28,7 +28,7 @@ export const PostList = ({ posts = [], showLikes = false }) => {
 PostList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType(PropTypes.string, PropTypes.number).isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       image: PropTypes.any.isRequired,
       title: PropTypes.string.isRequired,
       comments: PropTypes.number.isRequired,
