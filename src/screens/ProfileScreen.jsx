@@ -1,11 +1,11 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { StaticModal } from '../components/ui/StaticModal';
-import { ChangeableProfileImage } from '../components/form/ChangeableProfileImage';
-import { LogoutButton } from '../components/ui/LogoutButton';
-import { posts } from '../mock/posts';
-import bgImage from '../../assets/images/PhotoBG.jpg';
-import userProfileImage from '../../assets/images/userProfile.jpg';
-import { PostList } from '../components/PostList';
+import { StaticModal } from '~/ui/StaticModal';
+import { LogoutButton } from '~/ui/LogoutButton';
+import { ChangeableProfileImage } from '~/components/form/ChangeableProfileImage';
+import { PostList } from '~/components/PostList';
+import { posts } from '~/mock/posts';
+import bgImage from '@/assets/images/PhotoBG.jpg';
+import userProfileImage from '@/assets/images/userProfile.jpg';
 
 export default function ProfileScreen() {
   return (

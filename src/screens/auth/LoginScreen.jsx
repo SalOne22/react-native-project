@@ -2,13 +2,13 @@ import { StyleSheet, Text } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
 import { Background } from '~/ui/Background';
-import { StaticModal } from '../../components/ui/StaticModal';
-import { Header } from '../../components/ui/Header';
-import { Input } from '../../components/form/Input';
-import { PasswordInput } from '../../components/form/PasswordInput';
+import { StaticModal } from '~/ui/StaticModal';
+import { Header } from '~/ui/Header';
+import { Input } from '~/components/form/Input';
+import { PasswordInput } from '~/components/form/PasswordInput';
 import { Button } from '~/ui/Button';
-import { LinkButton } from '../../components/ui/LinkButton';
-import bgImage from '../../../assets/images/PhotoBG.jpg';
+import { LinkButton } from '~/ui/LinkButton';
+import bgImage from '@/assets/images/PhotoBG.jpg';
 
 export default function LoginScreen() {
   const navigation = useNavigation();

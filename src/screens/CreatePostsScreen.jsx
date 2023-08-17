@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { Feather } from '@expo/vector-icons';
-import { ChangeablePostImage } from '../components/form/ChangeablePostImage';
-import { GhostInput } from '../components/form/GhostInput';
+import { ChangeablePostImage } from '~/components/form/ChangeablePostImage';
+import { GhostInput } from '~/components/form/GhostInput';
 import { Button } from '~/ui/Button';
-import { DeleteButton } from '../components/form/DeleteButton';
-import { Container } from '../components/ui/Container';
-import postImage from '../../assets/images/postImage.jpg';
+import { DeleteButton } from '~/components/form/DeleteButton';
+import { Container } from '~/ui/Container';
+import postImage from '@/assets/images/postImage.jpg';
 
 export default function CreatePostsScreen() {
   const { control, handleSubmit, reset } = useForm({

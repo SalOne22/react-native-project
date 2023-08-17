@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-import { LogoutButton } from '../components/ui/LogoutButton';
-import { IconButton } from '../components/ui/IconButton';
+import { LogoutButton } from '~/ui/LogoutButton';
+import { IconButton } from '~/ui/IconButton';
 import PostsScreen from './PostsScreen';
 import CreatePostsScreen from './CreatePostsScreen';
 import ProfileScreen from './ProfileScreen';
