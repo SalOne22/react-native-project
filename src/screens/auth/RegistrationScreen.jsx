@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
 import { ChangeableProfileImage } from '../../components/form/ChangeableProfileImage';
-import { Background } from '../../components/ui/Background';
+import { Background } from '~/ui/Background';
 import { Header } from '../../components/ui/Header';
 import { Input } from '../../components/form/Input';
 import { PasswordInput } from '../../components/form/PasswordInput';

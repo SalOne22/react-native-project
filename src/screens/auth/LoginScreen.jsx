@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
-import { Background } from '../../components/ui/Background';
+import { Background } from '~/ui/Background';
 import { StaticModal } from '../../components/ui/StaticModal';
 import { Header } from '../../components/ui/Header';
 import { Input } from '../../components/form/Input';
