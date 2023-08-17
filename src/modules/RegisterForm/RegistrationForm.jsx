@@ -9,7 +9,7 @@ import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfil
 import { Input } from '~/components/Input';
 import { PasswordInput } from '~/components/PasswordInput';
 
-import { Button } from '~/ui/Button';
+import { Button } from '~/ui/buttons/Button';
 import { Header } from '~/ui/Header';
 import { ErrorText } from '~/ui/ErrorText';
 

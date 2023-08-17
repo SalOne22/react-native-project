@@ -6,7 +6,7 @@ import bgImage from '@/assets/images/PhotoBG.jpg';
 import { RegistrationForm } from '~/modules/RegisterForm';
 
 import { Background } from '~/ui/Background';
-import { LinkButton } from '~/ui/LinkButton';
+import { LinkButton } from '~/ui/buttons/LinkButton';
 import { StaticModal } from '~/ui/StaticModal';
 
 export default function RegistrationScreen() {

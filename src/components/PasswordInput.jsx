@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 
 import { Input } from './Input';
 
-import { LinkButton } from '~/ui/LinkButton';
+import { LinkButton } from '~/ui/buttons/LinkButton';
 
 export const PasswordInput = ({ style, value, onChangeText, isNew = false }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);

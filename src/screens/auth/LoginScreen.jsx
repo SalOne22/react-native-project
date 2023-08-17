@@ -3,7 +3,7 @@ import { StyleSheet, Text } from 'react-native';
 
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import { Background } from '~/ui/Background';
-import { LinkButton } from '~/ui/LinkButton';
+import { LinkButton } from '~/ui/buttons/LinkButton';
 import { StaticModal } from '~/ui/StaticModal';
 import { LoginForm } from '~/modules/LoginForm';
 

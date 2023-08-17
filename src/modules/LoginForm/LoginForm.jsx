@@ -7,7 +7,7 @@ import { Input } from '~/components/Input';
 import { PasswordInput } from '~/components/PasswordInput';
 
 import { Header } from '~/ui/Header';
-import { Button } from '~/ui/Button';
+import { Button } from '~/ui/buttons/Button';
 import { ErrorText } from '~/ui/ErrorText';
 
 export const LoginForm = ({ style }) => {

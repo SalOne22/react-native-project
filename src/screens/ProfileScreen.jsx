@@ -4,7 +4,7 @@ import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
 
 import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfileImage';
-import { LogoutButton } from '~/components/LogoutButton';
+import { LogoutButton } from '~/components/buttons/LogoutButton';
 
 import { PostList } from '~/modules/PostList';
 

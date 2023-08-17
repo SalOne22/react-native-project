@@ -8,9 +8,9 @@ import postImage from '@/assets/images/postImage.jpg';
 
 import { ChangeablePostImage } from '~/components/changeable/ChangeablePostImage';
 import { GhostInput } from '~/components/GhostInput';
-import { DeleteButton } from '~/components/DeleteButton';
+import { DeleteButton } from '~/components/buttons/DeleteButton';
 
-import { Button } from '~/ui/Button';
+import { Button } from '~/ui/buttons/Button';
 import { ErrorText } from '~/ui/ErrorText';
 
 export const CreatePostForm = ({ style }) => {
