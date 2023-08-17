@@ -6,7 +6,7 @@ import { Background } from '../../components/ui/Background';
 import { Header } from '../../components/ui/Header';
 import { Input } from '../../components/form/Input';
 import { PasswordInput } from '../../components/form/PasswordInput';
-import { Button } from '../../components/ui/Button';
+import { Button } from '~/ui/Button';
 import { LinkButton } from '../../components/ui/LinkButton';
 import { StaticModal } from '../../components/ui/StaticModal';
 import bgImage from '../../../assets/images/PhotoBG.jpg';
