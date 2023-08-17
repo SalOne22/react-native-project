@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
 
-import { ChangeableProfileImage } from '~/components/ChangeableProfileImage';
+import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfileImage';
 import { LogoutButton } from '~/components/LogoutButton';
 
 import { PostList } from '~/modules/PostList';

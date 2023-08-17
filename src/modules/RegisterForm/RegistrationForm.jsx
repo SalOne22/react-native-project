@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 
 import userProfileImage from '@/assets/images/userProfile.jpg';
 
-import { ChangeableProfileImage } from '~/components/ChangeableProfileImage';
+import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfileImage';
 import { Input } from '~/components/Input';
 import { PasswordInput } from '~/components/PasswordInput';
 
