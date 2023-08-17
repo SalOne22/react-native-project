@@ -3,9 +3,10 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
 
-import { PostList } from '~/components/PostList';
 import { ChangeableProfileImage } from '~/components/ChangeableProfileImage';
 import { LogoutButton } from '~/components/LogoutButton';
+
+import { PostList } from '~/modules/PostList';
 
 import { StaticModal } from '~/ui/StaticModal';
 
