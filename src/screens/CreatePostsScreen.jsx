@@ -4,9 +4,9 @@ import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import postImage from '@/assets/images/postImage.jpg';
-import { ChangeablePostImage } from '~/components/form/ChangeablePostImage';
-import { DeleteButton } from '~/components/form/DeleteButton';
-import { GhostInput } from '~/components/form/GhostInput';
+import { ChangeablePostImage } from '~/components/ChangeablePostImage';
+import { DeleteButton } from '~/components/DeleteButton';
+import { GhostInput } from '~/components/GhostInput';
 import { Button } from '~/ui/Button';
 import { Container } from '~/ui/Container';
 

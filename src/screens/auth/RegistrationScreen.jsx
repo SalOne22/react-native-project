@@ -4,9 +4,9 @@ import { StyleSheet } from 'react-native';
 
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
-import { ChangeableProfileImage } from '~/components/form/ChangeableProfileImage';
-import { Input } from '~/components/form/Input';
-import { PasswordInput } from '~/components/form/PasswordInput';
+import { ChangeableProfileImage } from '~/components/ChangeableProfileImage';
+import { Input } from '~/components/Input';
+import { PasswordInput } from '~/components/PasswordInput';
 import { Background } from '~/ui/Background';
 import { Button } from '~/ui/Button';
 import { Header } from '~/ui/Header';

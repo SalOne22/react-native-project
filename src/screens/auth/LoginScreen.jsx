@@ -3,8 +3,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, Text } from 'react-native';
 
 import bgImage from '@/assets/images/PhotoBG.jpg';
-import { Input } from '~/components/form/Input';
-import { PasswordInput } from '~/components/form/PasswordInput';
+import { Input } from '~/components/Input';
+import { PasswordInput } from '~/components/PasswordInput';
 import { Background } from '~/ui/Background';
 import { Button } from '~/ui/Button';
 import { Header } from '~/ui/Header';
