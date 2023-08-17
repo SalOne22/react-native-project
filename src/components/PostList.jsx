@@ -20,6 +20,7 @@ export const PostList = ({ posts = [], showLikes = false }) => {
           />
         )}
         keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
   );
