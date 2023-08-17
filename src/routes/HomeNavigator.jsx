@@ -5,8 +5,8 @@ import CreatePostsScreen from '~/screens/CreatePostsScreen';
 import PostsScreen from '~/screens/PostsScreen';
 import ProfileScreen from '~/screens/ProfileScreen';
 
-import { GoBackButton } from '~/components/GoBackButton';
-import { LogoutButton } from '~/components/LogoutButton';
+import { GoBackButton } from '~/components/buttons/GoBackButton';
+import { LogoutButton } from '~/components/buttons/LogoutButton';
 
 const Tab = createBottomTabNavigator();
 

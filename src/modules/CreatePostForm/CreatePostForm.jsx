@@ -7,7 +7,7 @@ import { Controller, useForm } from 'react-hook-form';
 import postImage from '@/assets/images/postImage.jpg';
 
 import { ChangeablePostImage } from '~/components/changeable/ChangeablePostImage';
-import { GhostInput } from '~/components/GhostInput';
+import { GhostInput } from '~/components/inputs/GhostInput';
 import { DeleteButton } from '~/components/buttons/DeleteButton';
 
 import { Button } from '~/ui/buttons/Button';

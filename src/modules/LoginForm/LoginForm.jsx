@@ -3,8 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
 
-import { Input } from '~/components/Input';
-import { PasswordInput } from '~/components/PasswordInput';
+import { Input } from '~/components/inputs/Input';
+import { PasswordInput } from '~/components/inputs/PasswordInput';
 
 import { Header } from '~/ui/Header';
 import { Button } from '~/ui/buttons/Button';
