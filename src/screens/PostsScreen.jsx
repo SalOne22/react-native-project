@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { UserProfileInfo } from '~/components/UserProfileInfo';
-import { Container } from '~/ui/Container';
-import { PostList } from '~/components/PostList';
-import { posts } from '~/mock/posts';
+
 import userProfileImage from '@/assets/images/userProfile.jpg';
+import { PostList } from '~/components/PostList';
+import { UserProfileInfo } from '~/components/UserProfileInfo';
+import { posts } from '~/mock/posts';
+import { Container } from '~/ui/Container';
 
 export default function PostsScreen() {
   return (

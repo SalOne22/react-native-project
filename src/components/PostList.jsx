@@ -1,4 +1,5 @@
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
+
 import { Post } from './Post';
 
 export const PostList = ({ posts = [], showLikes = false }) => {
@@ -6,9 +7,7 @@ export const PostList = ({ posts = [], showLikes = false }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={posts}
-        renderItem={({
-          item: { comments, image, location, title, likes, isLiked },
-        }) => (
+        renderItem={({ item: { comments, image, location, title, likes, isLiked } }) => (
           <Post
             comments={comments}
             image={image}

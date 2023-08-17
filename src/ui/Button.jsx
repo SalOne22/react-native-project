@@ -2,18 +2,9 @@ import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
 export const Button = ({ title, style, onPress, disabled = false }) => {
   return (
-    <TouchableOpacity
-      style={style}
-      activeOpacity={0.75}
-      onPress={onPress}
-      disabled={disabled}
-    >
+    <TouchableOpacity style={style} activeOpacity={0.75} onPress={onPress} disabled={disabled}>
       <View style={[styles.button, disabled && styles.buttonDisabled]}>
-        <Text
-          style={[styles.buttonText, disabled && styles.buttonTextDisabled]}
-        >
-          {title}
-        </Text>
+        <Text style={[styles.buttonText, disabled && styles.buttonTextDisabled]}>{title}</Text>
       </View>
     </TouchableOpacity>
   );

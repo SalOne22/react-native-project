@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
+
 import { ProfileImage } from '~/ui/ProfileImage';
 
 export const UserProfileInfo = ({ style, profileImage, username, email }) => {

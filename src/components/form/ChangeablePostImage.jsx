@@ -1,5 +1,5 @@
-import { Image, View, Text, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { Image, View, Text, StyleSheet } from 'react-native';
 
 export const ChangeablePostImage = ({ style, source }) => {
   return (
@@ -7,23 +7,12 @@ export const ChangeablePostImage = ({ style, source }) => {
       <View style={styles.container}>
         <Image style={styles.image} source={source} />
         <View style={styles.iconContainer}>
-          <View
-            style={[
-              styles.icon,
-              source && { backgroundColor: 'rgba(255 255 255 / 0.3)' },
-            ]}
-          >
-            <FontAwesome
-              name="camera"
-              size={24}
-              color={source ? '#fff' : '#bdbdbd'}
-            />
+          <View style={[styles.icon, source && { backgroundColor: 'rgba(255 255 255 / 0.3)' }]}>
+            <FontAwesome name="camera" size={24} color={source ? '#fff' : '#bdbdbd'} />
           </View>
         </View>
       </View>
-      <Text style={styles.bottomText}>
-        {source ? 'Редагувати фото' : 'Завантажте фото'}
-      </Text>
+      <Text style={styles.bottomText}>{source ? 'Редагувати фото' : 'Завантажте фото'}</Text>
     </View>
   );
 };

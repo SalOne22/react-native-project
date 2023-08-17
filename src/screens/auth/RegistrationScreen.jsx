@@ -1,16 +1,17 @@
-import { StyleSheet } from 'react-native';
-import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
-import { ChangeableProfileImage } from '~/components/form/ChangeableProfileImage';
-import { Background } from '~/ui/Background';
-import { Header } from '~/ui/Header';
-import { Input } from '~/components/form/Input';
-import { PasswordInput } from '~/components/form/PasswordInput';
-import { Button } from '~/ui/Button';
-import { LinkButton } from '~/ui/LinkButton';
-import { StaticModal } from '~/ui/StaticModal';
+import { Controller, useForm } from 'react-hook-form';
+import { StyleSheet } from 'react-native';
+
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
+import { ChangeableProfileImage } from '~/components/form/ChangeableProfileImage';
+import { Input } from '~/components/form/Input';
+import { PasswordInput } from '~/components/form/PasswordInput';
+import { Background } from '~/ui/Background';
+import { Button } from '~/ui/Button';
+import { Header } from '~/ui/Header';
+import { LinkButton } from '~/ui/LinkButton';
+import { StaticModal } from '~/ui/StaticModal';
 
 export default function RegistrationScreen() {
   const navigation = useNavigation();
@@ -35,10 +36,7 @@ export default function RegistrationScreen() {
     <Background image={bgImage} verticalOffset={-160}>
       <StaticModal>
         {/* Убрать source - появиться пустая картинка */}
-        <ChangeableProfileImage
-          style={styles.userProfileImage}
-          source={userProfileImage}
-        />
+        <ChangeableProfileImage style={styles.userProfileImage} source={userProfileImage} />
         <Header style={styles.headerText} title="Реєстрація" />
         <Controller
           control={control}
@@ -74,11 +72,7 @@ export default function RegistrationScreen() {
           control={control}
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
-            <PasswordInput
-              style={styles.passwordInput}
-              onChangeText={onChange}
-              value={value}
-            />
+            <PasswordInput style={styles.passwordInput} onChangeText={onChange} value={value} />
           )}
           name="password"
         />
@@ -88,10 +82,7 @@ export default function RegistrationScreen() {
           title="Зареєструватися"
           onPress={handleSubmit(onSubmit)}
         />
-        <LinkButton
-          onPress={() => navigation.navigate('Login')}
-          textStyle={styles.loginButton}
-        >
+        <LinkButton onPress={() => navigation.navigate('Login')} textStyle={styles.loginButton}>
           Вже є аккаунт? Увійти
         </LinkButton>
       </StaticModal>

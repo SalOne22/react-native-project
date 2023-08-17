@@ -1,8 +1,6 @@
 import { Text, StyleSheet } from 'react-native';
 
-export const Header = ({ title, style }) => (
-  <Text style={[style, styles.headerText]}>{title}</Text>
-);
+export const Header = ({ title, style }) => <Text style={[style, styles.headerText]}>{title}</Text>;
 
 const styles = StyleSheet.create({
   headerText: {

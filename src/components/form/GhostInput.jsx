@@ -24,7 +24,7 @@ export const GhostInput = ({
           style,
         ]}
         placeholder={placeholder}
-        placeholderTextColor={'#bdbdbd'}
+        placeholderTextColor="#bdbdbd"
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         secureTextEntry={hidden}
@@ -40,7 +40,7 @@ export const GhostInput = ({
       <TextInput
         style={[styles.input, accent && styles.accent, { marginLeft: 28 }]}
         placeholder={placeholder}
-        placeholderTextColor={'#bdbdbd'}
+        placeholderTextColor="#bdbdbd"
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         secureTextEntry={hidden}

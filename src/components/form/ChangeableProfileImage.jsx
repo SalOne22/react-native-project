@@ -1,5 +1,5 @@
-import { View, Image, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { View, Image, StyleSheet } from 'react-native';
 
 export const ChangeableProfileImage = ({ style, source }) => {
   return (

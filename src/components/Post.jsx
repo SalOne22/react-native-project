@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 export const Post = ({
   image,
@@ -16,35 +16,19 @@ export const Post = ({
       <Text style={styles.title}>{title}</Text>
       <View style={styles.bottomContent}>
         <View style={styles.item}>
-          <Feather
-            name="message-circle"
-            size={24}
-            color={comments > 0 ? '#ff6c00' : '#bdbdbd'}
-          />
-          <Text style={[styles.itemText, comments > 0 && styles.accent]}>
-            {comments}
-          </Text>
+          <Feather name="message-circle" size={24} color={comments > 0 ? '#ff6c00' : '#bdbdbd'} />
+          <Text style={[styles.itemText, comments > 0 && styles.accent]}>{comments}</Text>
         </View>
         {showLikes && (
           <View style={styles.item}>
-            <Feather
-              name="thumbs-up"
-              size={24}
-              color={isLiked ? '#ff6c00' : '#bdbdbd'}
-            />
-            <Text style={[styles.itemText, likes > 0 && styles.accent]}>
-              {likes}
-            </Text>
+            <Feather name="thumbs-up" size={24} color={isLiked ? '#ff6c00' : '#bdbdbd'} />
+            <Text style={[styles.itemText, likes > 0 && styles.accent]}>{likes}</Text>
           </View>
         )}
         <View style={[styles.item, styles.locationItem]}>
           <Feather name="map-pin" size={24} color="#bdbdbd" />
           <Text
-            style={[
-              styles.itemText,
-              styles.locationItemText,
-              !showLikes && styles.withoutLikes,
-            ]}
+            style={[styles.itemText, styles.locationItemText, !showLikes && styles.withoutLikes]}
             numberOfLines={1}
           >
             {location}

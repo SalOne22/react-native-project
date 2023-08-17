@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { StyleSheet } from 'react-native';
+
 import { IconButton } from '~/ui/IconButton';
 
 export const DeleteButton = ({ style }) => {

@@ -1,21 +1,14 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export const Input = ({
-  style,
-  placeholder,
-  autoComplete,
-  hidden,
-  value,
-  onChangeText,
-}) => {
+export const Input = ({ style, placeholder, autoComplete, hidden, value, onChangeText }) => {
   const [focused, setFocused] = useState(false);
 
   return (
     <TextInput
       style={[styles.input, focused && styles.focused, style]}
       placeholder={placeholder}
-      placeholderTextColor={'#bdbdbd'}
+      placeholderTextColor="#bdbdbd"
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       secureTextEntry={hidden}

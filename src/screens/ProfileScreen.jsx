@@ -1,11 +1,12 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { StaticModal } from '~/ui/StaticModal';
-import { LogoutButton } from '~/ui/LogoutButton';
-import { ChangeableProfileImage } from '~/components/form/ChangeableProfileImage';
-import { PostList } from '~/components/PostList';
-import { posts } from '~/mock/posts';
+
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
+import { PostList } from '~/components/PostList';
+import { ChangeableProfileImage } from '~/components/form/ChangeableProfileImage';
+import { posts } from '~/mock/posts';
+import { LogoutButton } from '~/ui/LogoutButton';
+import { StaticModal } from '~/ui/StaticModal';
 
 export default function ProfileScreen() {
   return (
@@ -13,10 +14,7 @@ export default function ProfileScreen() {
       <ImageBackground style={styles.bgImage} source={bgImage}>
         <StaticModal style={styles.modal}>
           {/* Убрать source - появиться пустая картинка */}
-          <ChangeableProfileImage
-            style={styles.profileImage}
-            source={userProfileImage}
-          />
+          <ChangeableProfileImage style={styles.profileImage} source={userProfileImage} />
           <View style={styles.logoutButton}>
             <LogoutButton />
           </View>

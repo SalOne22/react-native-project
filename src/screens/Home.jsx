@@ -1,11 +1,13 @@
+import { Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
-import { Feather } from '@expo/vector-icons';
-import { LogoutButton } from '~/ui/LogoutButton';
-import { IconButton } from '~/ui/IconButton';
-import PostsScreen from './PostsScreen';
+
 import CreatePostsScreen from './CreatePostsScreen';
+import PostsScreen from './PostsScreen';
 import ProfileScreen from './ProfileScreen';
+
+import { IconButton } from '~/ui/IconButton';
+import { LogoutButton } from '~/ui/LogoutButton';
 
 const Tab = createBottomTabNavigator();
 

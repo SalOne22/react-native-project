@@ -1,14 +1,15 @@
-import { StyleSheet, Text } from 'react-native';
-import { Controller, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
-import { Background } from '~/ui/Background';
-import { StaticModal } from '~/ui/StaticModal';
-import { Header } from '~/ui/Header';
+import { Controller, useForm } from 'react-hook-form';
+import { StyleSheet, Text } from 'react-native';
+
+import bgImage from '@/assets/images/PhotoBG.jpg';
 import { Input } from '~/components/form/Input';
 import { PasswordInput } from '~/components/form/PasswordInput';
+import { Background } from '~/ui/Background';
 import { Button } from '~/ui/Button';
+import { Header } from '~/ui/Header';
 import { LinkButton } from '~/ui/LinkButton';
-import bgImage from '@/assets/images/PhotoBG.jpg';
+import { StaticModal } from '~/ui/StaticModal';
 
 export default function LoginScreen() {
   const navigation = useNavigation();
@@ -52,26 +53,17 @@ export default function LoginScreen() {
           control={control}
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
-            <PasswordInput
-              style={styles.password}
-              onChangeText={onChange}
-              value={value}
-            />
+            <PasswordInput style={styles.password} onChangeText={onChange} value={value} />
           )}
           name="password"
         />
 
-        <Button
-          style={styles.loginButton}
-          title="Увійти"
-          onPress={handleSubmit(onSubmit)}
-        />
+        <Button style={styles.loginButton} title="Увійти" onPress={handleSubmit(onSubmit)} />
         <LinkButton
           onPress={() => navigation.navigate('Registration')}
           textStyle={styles.registrationButton}
         >
-          Немає аккаунту?{' '}
-          <Text style={styles.registrationLink}>Зареєструватися</Text>
+          Немає аккаунту? <Text style={styles.registrationLink}>Зареєструватися</Text>
         </LinkButton>
       </StaticModal>
     </Background>

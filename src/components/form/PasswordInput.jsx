@@ -1,14 +1,11 @@
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Input } from './Input';
-import { LinkButton } from '~/ui/LinkButton';
 import { useState } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export const PasswordInput = ({
-  style,
-  value,
-  onChangeText,
-  isNew = false,
-}) => {
+import { Input } from './Input';
+
+import { LinkButton } from '~/ui/LinkButton';
+
+export const PasswordInput = ({ style, value, onChangeText, isNew = false }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   return (
@@ -20,10 +17,7 @@ export const PasswordInput = ({
         value={value}
         onChangeText={onChangeText}
       />
-      <LinkButton
-        style={styles.showButton}
-        onPress={() => setIsPasswordShown((prev) => !prev)}
-      >
+      <LinkButton style={styles.showButton} onPress={() => setIsPasswordShown((prev) => !prev)}>
         {isPasswordShown ? 'Сховати' : 'Показати'}
       </LinkButton>
     </View>
