@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Feather } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
 
@@ -10,6 +11,10 @@ export const DeleteButton = ({ style }) => {
       icon={<Feather name="trash-2" size={24} color="#bdbdbd" />}
     />
   );
+};
+
+DeleteButton.propTypes = {
+  style: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

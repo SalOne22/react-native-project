@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
 export const IconButton = ({ icon, ...props }) => {
@@ -6,4 +7,8 @@ export const IconButton = ({ icon, ...props }) => {
       {icon}
     </TouchableOpacity>
   );
+};
+
+IconButton.propTypes = {
+  icon: PropTypes.element.isRequired,
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 export const LinkButton = ({ style, textStyle, children, onPress }) => {
@@ -6,6 +7,13 @@ export const LinkButton = ({ style, textStyle, children, onPress }) => {
       <Text style={[styles.link, textStyle]}>{children}</Text>
     </TouchableOpacity>
   );
+};
+
+LinkButton.propTypes = {
+  style: PropTypes.object,
+  textStyle: PropTypes.object,
+  children: PropTypes.any,
+  onPress: PropTypes.func,
 };
 
 const styles = StyleSheet.create({

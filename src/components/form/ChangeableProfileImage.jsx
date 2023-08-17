@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { AntDesign } from '@expo/vector-icons';
 import { View, Image, StyleSheet } from 'react-native';
 
@@ -13,6 +14,11 @@ export const ChangeableProfileImage = ({ style, source }) => {
       />
     </View>
   );
+};
+
+ChangeableProfileImage.propTypes = {
+  style: PropTypes.object,
+  source: PropTypes.any,
 };
 
 const styles = StyleSheet.create({

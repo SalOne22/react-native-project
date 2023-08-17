@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import { Input } from './Input';
 
@@ -22,6 +23,13 @@ export const PasswordInput = ({ style, value, onChangeText, isNew = false }) => 
       </LinkButton>
     </View>
   );
+};
+
+PasswordInput.propTypes = {
+  style: PropTypes.object,
+  value: PropTypes.string,
+  onChangeText: PropTypes.func,
+  isNew: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({

@@ -1,6 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { useForm } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import postImage from '@/assets/images/postImage.jpg';
 import { ChangeablePostImage } from '~/components/form/ChangeablePostImage';
@@ -10,7 +11,9 @@ import { Button } from '~/ui/Button';
 import { Container } from '~/ui/Container';
 
 export default function CreatePostsScreen() {
-  const { control, handleSubmit, reset } = useForm({
+  const navigation = useNavigation();
+
+  const { handleSubmit, reset } = useForm({
     defaultValues: {
       name: '',
       location: '',

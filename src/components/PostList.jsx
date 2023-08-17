@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 
 import { Post } from './Post';
@@ -22,6 +23,21 @@ export const PostList = ({ posts = [], showLikes = false }) => {
       />
     </SafeAreaView>
   );
+};
+
+PostList.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType(PropTypes.string, PropTypes.number).isRequired,
+      image: PropTypes.any.isRequired,
+      title: PropTypes.string.isRequired,
+      comments: PropTypes.number.isRequired,
+      likes: PropTypes.number,
+      location: PropTypes.string.isRequired,
+      isLiked: PropTypes.bool,
+    }),
+  ),
+  showLikes: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({

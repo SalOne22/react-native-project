@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { ProfileImage } from '~/ui/ProfileImage';
@@ -12,6 +13,13 @@ export const UserProfileInfo = ({ style, profileImage, username, email }) => {
       </View>
     </View>
   );
+};
+
+UserProfileInfo.propTypes = {
+  style: PropTypes.object,
+  profileImage: PropTypes.any,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

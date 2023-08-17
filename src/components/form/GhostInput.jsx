@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { TextInput, StyleSheet, View } from 'react-native';
 
@@ -50,6 +51,17 @@ export const GhostInput = ({
       />
     </View>
   );
+};
+
+GhostInput.propTypes = {
+  style: PropTypes.object,
+  placeholder: PropTypes.string,
+  autoComplete: PropTypes.string,
+  hidden: PropTypes.bool,
+  value: PropTypes.string,
+  onChangeText: PropTypes.func,
+  icon: PropTypes.element,
+  accent: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({

@@ -1,7 +1,13 @@
+import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 
 export const StaticModal = ({ children, style }) => {
   return <View style={[styles.modal, style]}>{children}</View>;
+};
+
+StaticModal.propTypes = {
+  children: PropTypes.any,
+  style: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

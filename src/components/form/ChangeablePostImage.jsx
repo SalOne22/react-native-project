@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FontAwesome } from '@expo/vector-icons';
 import { Image, View, Text, StyleSheet } from 'react-native';
 
@@ -15,6 +16,11 @@ export const ChangeablePostImage = ({ style, source }) => {
       <Text style={styles.bottomText}>{source ? 'Редагувати фото' : 'Завантажте фото'}</Text>
     </View>
   );
+};
+
+ChangeablePostImage.propTypes = {
+  style: PropTypes.object,
+  source: PropTypes.any,
 };
 
 const styles = StyleSheet.create({

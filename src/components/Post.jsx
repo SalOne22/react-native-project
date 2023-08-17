@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Feather } from '@expo/vector-icons';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
@@ -37,6 +38,16 @@ export const Post = ({
       </View>
     </View>
   );
+};
+
+Post.propTypes = {
+  image: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
+  comments: PropTypes.number.isRequired,
+  likes: PropTypes.number,
+  location: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool,
+  showLikes: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({

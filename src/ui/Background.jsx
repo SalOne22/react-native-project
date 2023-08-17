@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   KeyboardAvoidingView,
   ImageBackground,
@@ -20,6 +21,12 @@ export const Background = ({ children, image, verticalOffset }) => (
     </KeyboardAvoidingView>
   </TouchableWithoutFeedback>
 );
+
+Background.propTypes = {
+  children: PropTypes.any,
+  image: PropTypes.any,
+  verticalOffset: PropTypes.number,
+};
 
 const styles = StyleSheet.create({
   container: {

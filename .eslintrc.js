@@ -25,5 +25,19 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    'prettier/prettier': 0,
+    'import/order': [
+      1,
+      {
+        groups: [
+          ['external', 'builtin'],
+          'internal',
+          ['sibling', 'parent', 'index'],
+          'object',
+          'type',
+        ],
+      },
+    ],
+  },
 };
