@@ -10,8 +10,8 @@ import { Input } from '~/components/inputs/Input';
 import { PasswordInput } from '~/components/inputs/PasswordInput';
 
 import { Button } from '~/ui/buttons/Button';
-import { Header } from '~/ui/Header';
-import { ErrorText } from '~/ui/ErrorText';
+import { Header } from '~/ui/typography/Header';
+import { ErrorText } from '~/ui/typography/ErrorText';
 
 export const RegistrationForm = ({ style }) => {
   const navigation = useNavigation();

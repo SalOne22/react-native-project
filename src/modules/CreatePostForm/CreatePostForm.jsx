@@ -11,7 +11,7 @@ import { GhostInput } from '~/components/inputs/GhostInput';
 import { DeleteButton } from '~/components/buttons/DeleteButton';
 
 import { Button } from '~/ui/buttons/Button';
-import { ErrorText } from '~/ui/ErrorText';
+import { ErrorText } from '~/ui/typography/ErrorText';
 
 export const CreatePostForm = ({ style }) => {
   const navigation = useNavigation();

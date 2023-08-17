@@ -6,9 +6,9 @@ import { StyleSheet, View } from 'react-native';
 import { Input } from '~/components/inputs/Input';
 import { PasswordInput } from '~/components/inputs/PasswordInput';
 
-import { Header } from '~/ui/Header';
+import { Header } from '~/ui/typography/Header';
 import { Button } from '~/ui/buttons/Button';
-import { ErrorText } from '~/ui/ErrorText';
+import { ErrorText } from '~/ui/typography/ErrorText';
 
 export const LoginForm = ({ style }) => {
   const navigation = useNavigation();
