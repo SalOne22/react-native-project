@@ -5,9 +5,9 @@ import bgImage from '@/assets/images/PhotoBG.jpg';
 
 import { RegistrationForm } from '~/modules/RegisterForm';
 
-import { Background } from '~/ui/Background';
+import { Background } from '~/ui/wrappers/Background';
 import { LinkButton } from '~/ui/buttons/LinkButton';
-import { StaticModal } from '~/ui/StaticModal';
+import { StaticModal } from '~/ui/wrappers/StaticModal';
 
 export default function RegistrationScreen() {
   const navigation = useNavigation();

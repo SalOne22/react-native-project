@@ -6,7 +6,7 @@ import { UserProfileInfo } from '~/components/UserProfileInfo';
 
 import { PostList } from '~/modules/PostList';
 
-import { Container } from '~/ui/Container';
+import { Container } from '~/ui/wrappers/Container';
 
 import { posts } from '~/mock/posts';
 

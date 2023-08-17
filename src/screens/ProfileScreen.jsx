@@ -8,7 +8,7 @@ import { LogoutButton } from '~/components/buttons/LogoutButton';
 
 import { PostList } from '~/modules/PostList';
 
-import { StaticModal } from '~/ui/StaticModal';
+import { StaticModal } from '~/ui/wrappers/StaticModal';
 
 import { posts } from '~/mock/posts';
 

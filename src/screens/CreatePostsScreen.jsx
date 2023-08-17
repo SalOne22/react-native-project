@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { CreatePostForm } from '~/modules/CreatePostForm';
 
-import { Container } from '~/ui/Container';
+import { Container } from '~/ui/wrappers/Container';
 
 export default function CreatePostsScreen() {
   return (
