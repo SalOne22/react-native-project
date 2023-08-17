@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Feather } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
 
-import { IconButton } from '~/ui/IconButton';
+import { IconButton } from '~/ui/buttons/IconButton';
 
 export const DeleteButton = ({ style }) => {
   return (

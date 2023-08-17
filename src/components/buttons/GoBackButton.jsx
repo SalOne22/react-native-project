@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-import { IconButton } from '~/ui/IconButton';
+import { IconButton } from '~/ui/buttons/IconButton';
 
 export const GoBackButton = () => {
   const navigation = useNavigation();

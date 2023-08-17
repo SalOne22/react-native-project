@@ -1,7 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import { IconButton } from '../ui/IconButton';
+import { IconButton } from '~/ui/buttons/IconButton';
 
 export const LogoutButton = () => {
   const navigation = useNavigation();
