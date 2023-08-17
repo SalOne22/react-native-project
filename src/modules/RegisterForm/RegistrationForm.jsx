@@ -19,7 +19,7 @@ export const RegistrationForm = ({ style }) => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     reset,
   } = useForm({
     defaultValues: {
@@ -99,7 +99,7 @@ export const RegistrationForm = ({ style }) => {
         {errors.password && <ErrorText text={errors.password.message} />}
       </View>
 
-      <Button title="Зареєструватися" onPress={handleSubmit(onSubmit)} disabled={!isValid} />
+      <Button title="Зареєструватися" onPress={handleSubmit(onSubmit)} />
     </View>
   );
 };
