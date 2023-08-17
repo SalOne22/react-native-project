@@ -6,7 +6,7 @@ import PostsScreen from '~/screens/PostsScreen';
 import ProfileScreen from '~/screens/ProfileScreen';
 
 import { GoBackButton } from '~/components/GoBackButton';
-import { LogoutButton } from '~/ui/LogoutButton';
+import { LogoutButton } from '~/components/LogoutButton';
 
 const Tab = createBottomTabNavigator();
 
