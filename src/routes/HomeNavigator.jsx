@@ -2,16 +2,16 @@ import { Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 
-import CreatePostsScreen from './CreatePostsScreen';
-import PostsScreen from './PostsScreen';
-import ProfileScreen from './ProfileScreen';
+import CreatePostsScreen from '~/screens/CreatePostsScreen';
+import PostsScreen from '~/screens/PostsScreen';
+import ProfileScreen from '~/screens/ProfileScreen';
 
 import { IconButton } from '~/ui/IconButton';
 import { LogoutButton } from '~/ui/LogoutButton';
 
 const Tab = createBottomTabNavigator();
 
-export default function Home() {
+export default function HomeNavigator() {
   const navigation = useNavigation();
 
   return (
