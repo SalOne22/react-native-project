@@ -1,22 +1,20 @@
 import { Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useNavigation } from '@react-navigation/native';
 
 import CreatePostsScreen from '~/screens/CreatePostsScreen';
 import PostsScreen from '~/screens/PostsScreen';
 import ProfileScreen from '~/screens/ProfileScreen';
 
-import { IconButton } from '~/ui/IconButton';
+import { GoBackButton } from '~/components/GoBackButton';
 import { LogoutButton } from '~/ui/LogoutButton';
 
 const Tab = createBottomTabNavigator();
 
 export default function HomeNavigator() {
-  const navigation = useNavigation();
-
   return (
     <Tab.Navigator
       initialRouteName="Posts"
+      backBehavior="history"
       screenOptions={({ route }) => ({
         headerStyle: {
           shadowColor: 'rgba(0 0 0 / 0.3)',
@@ -35,12 +33,7 @@ export default function HomeNavigator() {
           paddingVertical: 11,
         },
 
-        headerLeft: () => (
-          <IconButton
-            icon={<Feather name="arrow-left" size={24} color="#000" />}
-            onPress={() => navigation.navigate('Posts')}
-          />
-        ),
+        headerLeft: () => <GoBackButton />,
         headerLeftContainerStyle: {
           left: 16,
         },
