@@ -1,13 +1,8 @@
 import PropTypes from 'prop-types';
-import { Keyboard, StyleSheet, View } from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { StyleSheet, View } from 'react-native';
 
 export const Container = ({ style, children }) => {
-  return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={[styles.container, style]}>{children}</View>
-    </TouchableWithoutFeedback>
-  );
+  return <View style={[styles.container, style]}>{children}</View>;
 };
 
 Container.propTypes = {

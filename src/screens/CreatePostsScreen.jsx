@@ -1,13 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { CreatePostForm } from '~/modules/CreatePostForm';
 
 import { Container } from '~/ui/wrappers/Container';
+import { KeyboardHandler } from '~/components/KeyboardHandler';
+import { CreatePostForm } from '~/modules/CreatePostForm';
 
 export default function CreatePostsScreen() {
   return (
-    <Container>
-      <CreatePostForm style={styles.createPostForm} />
-    </Container>
+    <KeyboardHandler>
+      <Container>
+        <CreatePostForm style={styles.createPostForm} />
+      </Container>
+    </KeyboardHandler>
   );
 }
 
