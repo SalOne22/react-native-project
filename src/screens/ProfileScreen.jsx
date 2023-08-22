@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import bgImage from '@/assets/images/PhotoBG.jpg';
 import userProfileImage from '@/assets/images/userProfile.jpg';
@@ -8,36 +8,28 @@ import { LogoutButton } from '~/components/buttons/LogoutButton';
 
 import { PostList } from '~/modules/PostList';
 
+import { Background } from '~/ui/wrappers/Background';
 import { StaticModal } from '~/ui/wrappers/StaticModal';
 
 import { posts } from '~/mock/posts';
 
 export default function ProfileScreen() {
   return (
-    <View style={styles.container}>
-      <ImageBackground style={styles.bgImage} source={bgImage}>
-        <StaticModal style={styles.modal}>
-          {/* Убрать source - появиться пустая картинка */}
-          <ChangeableProfileImage style={styles.profileImage} source={userProfileImage} />
-          <View style={styles.logoutButton}>
-            <LogoutButton />
-          </View>
-          <Text style={styles.header}>Natali Romanova</Text>
-          <PostList posts={posts} showLikes />
-        </StaticModal>
-      </ImageBackground>
-    </View>
+    <Background image={bgImage}>
+      <StaticModal style={styles.modal}>
+        {/* Убрать source - появиться пустая картинка */}
+        <ChangeableProfileImage style={styles.profileImage} source={userProfileImage} />
+        <View style={styles.logoutButton}>
+          <LogoutButton />
+        </View>
+        <Text style={styles.header}>Natali Romanova</Text>
+        <PostList posts={posts} showLikes />
+      </StaticModal>
+    </Background>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  bgImage: {
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
   modal: {
     paddingTop: 92,
     paddingBottom: 0,
