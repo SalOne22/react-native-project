@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+
+import * as Location from 'expo-location';
+
 import { StyleSheet, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -18,6 +21,7 @@ export const CreatePostForm = ({ style }) => {
     control,
     handleSubmit,
     setValue,
+    setError,
     formState: { errors, isValid },
     reset,
   } = useForm({
@@ -25,11 +29,24 @@ export const CreatePostForm = ({ style }) => {
       title: '',
       location: '',
       image: null,
+      geolocation: null,
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const { status } = await Location.requestForegroundPermissionsAsync();
+
+    if (status !== 'granted') {
+      setError('geolocation', {
+        type: 'required',
+        message: 'У доступі до місцезнаходження відмовлено',
+      });
+      return;
+    }
+
+    const { coords } = await Location.getCurrentPositionAsync();
+
+    console.log({ ...data, geolocation: coords });
     reset();
     navigation.navigate('Posts');
   };
@@ -78,6 +95,7 @@ export const CreatePostForm = ({ style }) => {
           name="location"
         />
         {errors.location && <ErrorText text={errors.location.message} />}
+        {errors.geolocation && <ErrorText text={errors.geolocation.message} />}
       </View>
 
       <Button
