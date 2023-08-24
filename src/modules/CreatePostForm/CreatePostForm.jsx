@@ -4,8 +4,6 @@ import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 
-import postImage from '@/assets/images/postImage.jpg';
-
 import { ChangeablePostImage } from '~/components/changeable/ChangeablePostImage';
 import { GhostInput } from '~/components/inputs/GhostInput';
 import { DeleteButton } from '~/components/buttons/DeleteButton';
@@ -19,12 +17,14 @@ export const CreatePostForm = ({ style }) => {
   const {
     control,
     handleSubmit,
+    setValue,
     formState: { errors, isValid },
     reset,
   } = useForm({
     defaultValues: {
       title: '',
       location: '',
+      image: null,
     },
   });
 
@@ -36,8 +36,17 @@ export const CreatePostForm = ({ style }) => {
 
   return (
     <View style={style}>
-      {/* Убрать source - появиться пустая картинка */}
-      <ChangeablePostImage style={styles.changeableImage} source={postImage} />
+      <View style={styles.changeableImage}>
+        <Controller
+          control={control}
+          rules={{ required: "Фото - обов'язкове" }}
+          render={({ field: { value } }) => (
+            <ChangeablePostImage image={value} setImage={(image) => setValue('image', image)} />
+          )}
+          name="image"
+        />
+        {errors.image && <ErrorText text={errors.image.message} />}
+      </View>
 
       <View style={styles.topInput}>
         <Controller

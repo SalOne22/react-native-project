@@ -97,6 +97,7 @@ export default function HomeNavigator() {
           tabBarStyle: {
             display: 'none',
           },
+          unmountOnBlur: true,
         }}
       />
       <Tab.Screen
