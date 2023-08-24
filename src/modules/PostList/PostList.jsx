@@ -8,11 +8,14 @@ export const PostList = ({ posts = [], showLikes = false }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={posts}
-        renderItem={({ item: { comments, image, location, title, likes, isLiked } }) => (
+        renderItem={({
+          item: { comments, image, location, geolocation, title, likes, isLiked },
+        }) => (
           <Post
             comments={comments}
             image={image}
             location={location}
+            geolocation={geolocation}
             title={title}
             likes={likes}
             isLiked={isLiked}
@@ -29,13 +32,7 @@ export const PostList = ({ posts = [], showLikes = false }) => {
 PostList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      image: PropTypes.any.isRequired,
-      title: PropTypes.string.isRequired,
-      comments: PropTypes.number.isRequired,
-      likes: PropTypes.number,
-      location: PropTypes.string.isRequired,
-      isLiked: PropTypes.bool,
+      id: PropTypes.number.isRequired,
     }),
   ),
   showLikes: PropTypes.bool,

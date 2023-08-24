@@ -8,6 +8,7 @@ export const Post = ({
   comments,
   likes,
   location,
+  geolocation,
   isLiked = false,
   showLikes = true,
 }) => {
@@ -17,8 +18,14 @@ export const Post = ({
       <Text style={styles.title}>{title}</Text>
       <View style={styles.bottomContent}>
         <View style={styles.item}>
-          <Feather name="message-circle" size={24} color={comments > 0 ? '#ff6c00' : '#bdbdbd'} />
-          <Text style={[styles.itemText, comments > 0 && styles.accent]}>{comments}</Text>
+          <Feather
+            name="message-circle"
+            size={24}
+            color={comments.length > 0 ? '#ff6c00' : '#bdbdbd'}
+          />
+          <Text style={[styles.itemText, comments.length > 0 && styles.accent]}>
+            {comments.length}
+          </Text>
         </View>
         {showLikes && (
           <View style={styles.item}>
@@ -43,9 +50,22 @@ export const Post = ({
 Post.propTypes = {
   image: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
-  comments: PropTypes.number.isRequired,
+  comments: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      userPicture: PropTypes.any,
+      userId: PropTypes.number.isRequired,
+      content: PropTypes.string.isRequired,
+      timestamp: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   likes: PropTypes.number,
   location: PropTypes.string.isRequired,
+  geolocation: PropTypes.exact({
+    altitude: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+  }).isRequired,
   isLiked: PropTypes.bool,
   showLikes: PropTypes.bool,
 };
