@@ -31,7 +31,7 @@ export const CreatePostForm = ({ style }) => {
   const onSubmit = (data) => {
     console.log(data);
     reset();
-    navigation.navigate('Home');
+    navigation.navigate('Posts');
   };
 
   return (
@@ -43,7 +43,7 @@ export const CreatePostForm = ({ style }) => {
           render={({ field: { value } }) => (
             <ChangeablePostImage
               image={value}
-              setImage={(image) => setValue('image', image)}
+              setImage={(image) => setValue('image', image, { shouldValidate: true })}
               error={errors.image?.message}
             />
           )}
