@@ -8,8 +8,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Camera, CameraType } from 'expo-camera';
 
 import { Spinner } from '~/ui/Spinner';
+import { ErrorText } from '~/ui/typography/ErrorText';
 
-export const ChangeablePostImage = ({ style, image, setImage }) => {
+export const ChangeablePostImage = ({ style, image, setImage, error }) => {
   const [cameraRef, setCameraRef] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -80,7 +81,11 @@ export const ChangeablePostImage = ({ style, image, setImage }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <Text style={styles.bottomText}>{image ? 'Редагувати фото' : 'Завантажте фото'}</Text>
+      {error ? (
+        <ErrorText text={error} />
+      ) : (
+        <Text style={styles.bottomText}>{image ? 'Редагувати фото' : 'Завантажте фото'}</Text>
+      )}
     </View>
   );
 };
@@ -91,6 +96,7 @@ ChangeablePostImage.propTypes = {
     uri: PropTypes.string.isRequired,
   }),
   setImage: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
 const styles = StyleSheet.create({

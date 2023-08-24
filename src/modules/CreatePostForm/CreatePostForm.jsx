@@ -41,11 +41,14 @@ export const CreatePostForm = ({ style }) => {
           control={control}
           rules={{ required: "Фото - обов'язкове" }}
           render={({ field: { value } }) => (
-            <ChangeablePostImage image={value} setImage={(image) => setValue('image', image)} />
+            <ChangeablePostImage
+              image={value}
+              setImage={(image) => setValue('image', image)}
+              error={errors.image?.message}
+            />
           )}
           name="image"
         />
-        {errors.image && <ErrorText text={errors.image.message} />}
       </View>
 
       <View style={styles.topInput}>

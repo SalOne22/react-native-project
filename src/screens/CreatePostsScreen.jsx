@@ -6,7 +6,7 @@ import { CreatePostForm } from '~/modules/CreatePostForm';
 
 export default function CreatePostsScreen() {
   return (
-    <KeyboardHandler>
+    <KeyboardHandler verticalOffset={-16}>
       <Container>
         <CreatePostForm style={styles.createPostForm} />
       </Container>
