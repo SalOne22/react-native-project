@@ -36,7 +36,7 @@ export const posts = [
       },
       {
         id: 103,
-        userPicture: userProfilePicture,
+        userPicture: null,
         userId: 203,
         content: "Якщо буде можливість, обов'язково відвідаю.",
         timestamp: '2023-08-24T08:20:00Z',
@@ -125,23 +125,25 @@ export const posts = [
     comments: [
       {
         id: 110,
-        userPicture: userProfilePicture,
+        userPicture: null,
         userId: 209,
-        content: 'Карпати - моє улюблене місце.',
+        content:
+          'Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!',
         timestamp: '2023-08-24T14:20:00Z',
       },
       {
         id: 111,
         userPicture: userProfilePicture,
-        userId: 210,
-        content: 'Тут завжди так гарно!',
+        userId: 202,
+        content:
+          'A fast 50mm like f1.8 would help with the bokeh. I’ve been using primes as they tend to get a bit sharper images.',
         timestamp: '2023-08-24T17:10:00Z',
       },
       {
         id: 112,
-        userPicture: userProfilePicture,
-        userId: 211,
-        content: 'Фото неймовірне!',
+        userPicture: null,
+        userId: 209,
+        content: 'Thank you! That was very helpful!',
         timestamp: '2023-08-24T18:30:00Z',
       },
     ],
