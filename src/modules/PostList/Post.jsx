@@ -43,7 +43,7 @@ export const Post = ({
         <TouchableOpacity
           style={[styles.item, styles.locationItem]}
           activeOpacity={0.6}
-          onPress={() => navigation.navigate('Map')}
+          onPress={() => navigation.navigate('Map', geolocation)}
         >
           <Feather name="map-pin" size={24} color="#bdbdbd" />
           <Text
@@ -73,7 +73,6 @@ Post.propTypes = {
   likes: PropTypes.number,
   location: PropTypes.string.isRequired,
   geolocation: PropTypes.exact({
-    altitude: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
   }).isRequired,
