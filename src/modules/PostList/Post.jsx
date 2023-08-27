@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import { PostImage } from '~/ui/PostImage';
 
 export const Post = ({
   image,
@@ -17,13 +19,13 @@ export const Post = ({
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <PostImage style={styles.image} image={image} />
       <Text style={styles.title}>{title}</Text>
       <View style={styles.bottomContent}>
         <TouchableOpacity
           style={styles.item}
           activeOpacity={0.6}
-          onPress={() => navigation.navigate('Comments')}
+          onPress={() => navigation.navigate('Comments', { image, comments })}
         >
           <Feather
             name="message-circle"
@@ -85,9 +87,6 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   image: {
-    width: '100%',
-    height: 240,
-    borderRadius: 8,
     marginBottom: 8,
   },
   title: {
