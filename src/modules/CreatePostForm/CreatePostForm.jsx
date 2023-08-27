@@ -22,7 +22,7 @@ export const CreatePostForm = ({ style }) => {
     handleSubmit,
     setValue,
     setError,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isSubmitting },
     reset,
   } = useForm({
     defaultValues: {
@@ -101,7 +101,7 @@ export const CreatePostForm = ({ style }) => {
       <Button
         style={styles.submitButton}
         title="Опублікувати"
-        disabled={!isValid}
+        disabled={!isValid || isSubmitting}
         onPress={handleSubmit(onSubmit)}
       />
       <DeleteButton style={styles.deleteButton} onPress={() => reset()} />
