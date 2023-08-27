@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-
 import { createStackNavigator } from '@react-navigation/stack';
+
+import HomeNavigator from './HomeNavigator';
 
 import CommentsScreen from '~/screens/CommentsScreen';
 import MapScreen from '~/screens/MapScreen';
 
 const Stack = createStackNavigator();
 
-export default function PostNavigator({ defaultScreen, defaultScreenOptions }) {
+export default function PostNavigator() {
   return (
     <Stack.Navigator
       initialRouteName="Default"
@@ -30,14 +30,9 @@ export default function PostNavigator({ defaultScreen, defaultScreenOptions }) {
         },
       })}
     >
-      <Stack.Screen name="Default" component={defaultScreen} options={defaultScreenOptions} />
+      <Stack.Screen name="Default" component={HomeNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Comments" component={CommentsScreen} options={{ title: 'Коментарі' }} />
       <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Мапа' }} />
     </Stack.Navigator>
   );
 }
-
-PostNavigator.propTypes = {
-  defaultScreen: PropTypes.elementType.isRequired,
-  defaultScreenOptions: PropTypes.object,
-};

@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeNavigator from './HomeNavigator';
+import PostNavigator from './PostNavigator';
 
 import LoginScreen from '~/screens/auth/LoginScreen';
 import RegistrationScreen from '~/screens/auth/RegistrationScreen';
@@ -17,7 +17,7 @@ export default function MainNavigator() {
     >
       <MainStack.Screen name="Registration" component={RegistrationScreen} />
       <MainStack.Screen name="Login" component={LoginScreen} />
-      <MainStack.Screen name="Home" component={HomeNavigator} />
+      <MainStack.Screen name="Home" component={PostNavigator} />
     </MainStack.Navigator>
   );
 }
