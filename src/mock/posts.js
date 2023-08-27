@@ -17,7 +17,6 @@ export const posts = [
     ],
     likes: 0,
     geolocation: {
-      altitude: 500,
       latitude: 48.9226,
       longitude: 24.7111,
     },
@@ -45,7 +44,6 @@ export const posts = [
     ],
     likes: 60,
     geolocation: {
-      altitude: 800,
       latitude: 48.6716,
       longitude: 23.2924,
     },
@@ -95,7 +93,6 @@ export const posts = [
     likes: 3,
     isLiked: true,
     geolocation: {
-      altitude: 1200,
       latitude: 49.8397,
       longitude: 23.9714,
     },
@@ -116,7 +113,6 @@ export const posts = [
     ],
     likes: 2,
     geolocation: {
-      altitude: 900,
       latitude: 48.4312,
       longitude: 25.953,
     },
@@ -151,7 +147,6 @@ export const posts = [
     ],
     likes: 15,
     geolocation: {
-      altitude: 700,
       latitude: 49.3558,
       longitude: 25.7036,
     },
