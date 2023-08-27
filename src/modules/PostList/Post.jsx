@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Feather } from '@expo/vector-icons';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export const Post = ({
   image,
@@ -12,12 +13,18 @@ export const Post = ({
   isLiked = false,
   showLikes = true,
 }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
       <Text style={styles.title}>{title}</Text>
       <View style={styles.bottomContent}>
-        <View style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          activeOpacity={0.6}
+          onPress={() => navigation.navigate('Comments')}
+        >
           <Feather
             name="message-circle"
             size={24}
@@ -26,14 +33,18 @@ export const Post = ({
           <Text style={[styles.itemText, comments.length > 0 && styles.accent]}>
             {comments.length}
           </Text>
-        </View>
+        </TouchableOpacity>
         {showLikes && (
           <View style={styles.item}>
             <Feather name="thumbs-up" size={24} color={isLiked ? '#ff6c00' : '#bdbdbd'} />
             <Text style={[styles.itemText, likes > 0 && styles.accent]}>{likes}</Text>
           </View>
         )}
-        <View style={[styles.item, styles.locationItem]}>
+        <TouchableOpacity
+          style={[styles.item, styles.locationItem]}
+          activeOpacity={0.6}
+          onPress={() => navigation.navigate('Map')}
+        >
           <Feather name="map-pin" size={24} color="#bdbdbd" />
           <Text
             style={[styles.itemText, styles.locationItemText, !showLikes && styles.withoutLikes]}
@@ -41,7 +52,7 @@ export const Post = ({
           >
             {location}
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

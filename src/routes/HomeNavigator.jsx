@@ -1,6 +1,8 @@
 import { Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import PostNavigator from './PostNavigator';
+
 import CreatePostsScreen from '~/screens/CreatePostsScreen';
 import PostsScreen from '~/screens/PostsScreen';
 import ProfileScreen from '~/screens/ProfileScreen';
@@ -9,6 +11,25 @@ import { GoBackButton } from '~/components/buttons/GoBackButton';
 import { LogoutButton } from '~/components/buttons/LogoutButton';
 
 const Tab = createBottomTabNavigator();
+
+const PostsNavigator = () => (
+  <PostNavigator
+    defaultScreen={PostsScreen}
+    defaultScreenOptions={{
+      title: 'Публікації',
+      headerRight: () => <LogoutButton />,
+      headerRightContainerStyle: {
+        paddingVertical: 10,
+        right: 16,
+      },
+      headerLeft: null,
+    }}
+  />
+);
+
+const ProfileNavigator = () => (
+  <PostNavigator defaultScreen={ProfileScreen} defaultScreenOptions={{ headerShown: false }} />
+);
 
 export default function HomeNavigator() {
   return (
@@ -76,19 +97,7 @@ export default function HomeNavigator() {
         },
       })}
     >
-      <Tab.Screen
-        name="Posts"
-        component={PostsScreen}
-        options={{
-          title: 'Публікації',
-          headerRight: () => <LogoutButton />,
-          headerRightContainerStyle: {
-            paddingVertical: 10,
-            right: 16,
-          },
-          headerLeft: null,
-        }}
-      />
+      <Tab.Screen name="Posts" component={PostsNavigator} options={{ headerShown: false }} />
       <Tab.Screen
         name="CreatePost"
         component={CreatePostsScreen}
@@ -102,7 +111,7 @@ export default function HomeNavigator() {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileNavigator}
         options={{
           title: 'Профіль',
           headerShown: false,
