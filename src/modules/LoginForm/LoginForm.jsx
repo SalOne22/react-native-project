@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
@@ -10,13 +11,17 @@ import { Header } from '~/ui/typography/Header';
 import { Button } from '~/ui/buttons/Button';
 import { ErrorText } from '~/ui/typography/ErrorText';
 
+import { parseAuthError } from '~/utils';
+import { auth } from '~/config';
+
 export const LoginForm = ({ style }) => {
   const navigation = useNavigation();
 
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    setError,
+    formState: { errors, isSubmitting },
     reset,
   } = useForm({
     defaultValues: {
@@ -25,10 +30,19 @@ export const LoginForm = ({ style }) => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
-    navigation.navigate('Home');
+  const onSubmit = async ({ email, password }) => {
+    try {
+      email = email.trim();
+      password = password.trim();
+
+      await signInWithEmailAndPassword(auth, email, password);
+
+      reset();
+      navigation.navigate('Home');
+    } catch (err) {
+      const [name, message] = parseAuthError(err);
+      setError(name, { type: 'custom', message });
+    }
   };
 
   return (
@@ -64,7 +78,16 @@ export const LoginForm = ({ style }) => {
         {errors.password && <ErrorText text={errors.password.message} />}
       </View>
 
-      <Button style={styles.loginButton} title="Увійти" onPress={handleSubmit(onSubmit)} />
+      {errors.root && (
+        <ErrorText style={{ textAlign: 'center', marginBottom: 8 }} text={errors.root.message} />
+      )}
+
+      <Button
+        style={styles.loginButton}
+        title="Увійти"
+        onPress={handleSubmit(onSubmit)}
+        disabled={isSubmitting}
+      />
     </View>
   );
 };
