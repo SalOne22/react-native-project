@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
-
-import userProfileImage from '@/assets/images/userProfile.jpg';
 
 import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfileImage';
 import { Input } from '~/components/inputs/Input';
@@ -13,6 +12,9 @@ import { Button } from '~/ui/buttons/Button';
 import { Header } from '~/ui/typography/Header';
 import { ErrorText } from '~/ui/typography/ErrorText';
 
+import { parseAuthError, uploadImage } from '~/utils';
+import { auth } from '~/config';
+
 export const RegistrationForm = ({ style }) => {
   const navigation = useNavigation();
 
@@ -20,7 +22,8 @@ export const RegistrationForm = ({ style }) => {
     control,
     handleSubmit,
     setValue,
-    formState: { errors },
+    setError,
+    formState: { errors, isSubmitting },
     reset,
   } = useForm({
     defaultValues: {
@@ -31,10 +34,23 @@ export const RegistrationForm = ({ style }) => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
-    navigation.navigate('Home');
+  const onSubmit = async ({ username, email, password, picture }) => {
+    username = username.trim();
+    email = email.trim();
+    password = password.trim();
+
+    try {
+      const credentials = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(credentials.user, {
+        displayName: username,
+        photoURL: picture && (await uploadImage('profile_images', picture.uri)),
+      });
+      reset();
+      navigation.navigate('Home');
+    } catch (err) {
+      const [name, message] = parseAuthError(err);
+      setError(name, { type: 'custom', message });
+    }
   };
 
   return (
@@ -111,7 +127,11 @@ export const RegistrationForm = ({ style }) => {
         {errors.password && <ErrorText text={errors.password.message} />}
       </View>
 
-      <Button title="Зареєструватися" onPress={handleSubmit(onSubmit)} />
+      {errors.root && (
+        <ErrorText style={{ textAlign: 'center', marginBottom: 8 }} text={errors.root.message} />
+      )}
+
+      <Button title="Зареєструватися" onPress={handleSubmit(onSubmit)} disabled={isSubmitting} />
     </View>
   );
 };
