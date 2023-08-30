@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
+import { auth } from '~/config';
 
 import { ProfileImage } from '~/ui/ProfileImage';
 
-export const UserProfileInfo = ({ style, profileImage, username, email }) => {
+export const UserProfileInfo = ({ style }) => {
+  const { displayName, email, photoURL } = auth.currentUser;
+
   return (
     <View style={[styles.container, style]}>
-      <ProfileImage source={profileImage} />
+      <ProfileImage source={{ uri: photoURL }} />
       <View>
-        <Text style={styles.username}>{username}</Text>
+        <Text style={styles.username}>{displayName}</Text>
         <Text style={styles.email}>{email}</Text>
       </View>
     </View>
