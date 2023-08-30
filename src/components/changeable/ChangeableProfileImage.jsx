@@ -1,17 +1,36 @@
 import PropTypes from 'prop-types';
-import { AntDesign } from '@expo/vector-icons';
-import { View, Image, StyleSheet } from 'react-native';
 
-export const ChangeableProfileImage = ({ style, source }) => {
+import * as ImagePicker from 'expo-image-picker';
+
+import { AntDesign } from '@expo/vector-icons';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+
+export const ChangeableProfileImage = ({ style, source, setSource }) => {
+  const setPicture = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (!granted) return;
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      aspect: [1, 1],
+    });
+
+    if (!result.canceled) setSource(result.assets[0]);
+  };
+
+  const resetPicture = () => setSource(null);
+
   return (
     <View style={[styles.userImageContainer, style]}>
       {source && <Image style={styles.userImage} source={source} />}
-      <AntDesign
+      <TouchableOpacity
         style={[styles.icon, source ? styles.remove : styles.add]}
-        name="pluscircleo"
-        size={25}
-        color={source ? '#e8e8e8' : '#ff6c00'}
-      />
+        activeOpacity={0.6}
+        onPress={source ? resetPicture : setPicture}
+      >
+        <AntDesign name="pluscircleo" size={25} color={source ? '#e8e8e8' : '#ff6c00'} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -19,6 +38,7 @@ export const ChangeableProfileImage = ({ style, source }) => {
 ChangeableProfileImage.propTypes = {
   style: PropTypes.object,
   source: PropTypes.any,
+  setSource: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

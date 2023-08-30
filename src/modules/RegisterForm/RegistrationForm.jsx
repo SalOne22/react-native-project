@@ -19,6 +19,7 @@ export const RegistrationForm = ({ style }) => {
   const {
     control,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm({
@@ -26,6 +27,7 @@ export const RegistrationForm = ({ style }) => {
       username: '',
       email: '',
       password: '',
+      picture: null,
     },
   });
 
@@ -37,8 +39,18 @@ export const RegistrationForm = ({ style }) => {
 
   return (
     <View style={style}>
-      {/* Убрать source - появиться пустая картинка */}
-      <ChangeableProfileImage style={styles.userProfileImage} source={userProfileImage} />
+      <Controller
+        control={control}
+        render={({ field: { value } }) => (
+          <ChangeableProfileImage
+            style={styles.userProfileImage}
+            source={value}
+            setSource={(picture) => setValue('picture', picture)}
+          />
+        )}
+        name="picture"
+      />
+
       <Header style={styles.headerText} title="Реєстрація" />
 
       <View style={styles.input}>
