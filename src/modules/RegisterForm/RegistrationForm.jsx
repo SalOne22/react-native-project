@@ -16,8 +16,6 @@ import { parseAuthError, uploadImage } from '~/utils';
 import { auth } from '~/config';
 
 export const RegistrationForm = ({ style }) => {
-  const navigation = useNavigation();
-
   const {
     control,
     handleSubmit,
@@ -46,7 +44,6 @@ export const RegistrationForm = ({ style }) => {
         photoURL: picture && (await uploadImage('profile_images', picture.uri)),
       });
       reset();
-      navigation.navigate('Home');
     } catch (err) {
       const [name, message] = parseAuthError(err);
       setError(name, { type: 'custom', message });

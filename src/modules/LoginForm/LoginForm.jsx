@@ -15,8 +15,6 @@ import { parseAuthError } from '~/utils';
 import { auth } from '~/config';
 
 export const LoginForm = ({ style }) => {
-  const navigation = useNavigation();
-
   const {
     control,
     handleSubmit,
@@ -38,7 +36,6 @@ export const LoginForm = ({ style }) => {
       await signInWithEmailAndPassword(auth, email, password);
 
       reset();
-      navigation.navigate('Home');
     } catch (err) {
       const [name, message] = parseAuthError(err);
       setError(name, { type: 'custom', message });
