@@ -1,23 +1,19 @@
-import { useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useSelector } from 'react-redux';
 
 import PostNavigator from './PostNavigator';
 
 import LoginScreen from '~/screens/auth/LoginScreen';
 import RegistrationScreen from '~/screens/auth/RegistrationScreen';
-import { auth } from '~/config';
+
+import { selectIsAuthenticated } from '~/redux/slices/authSlice';
 
 const MainStack = createStackNavigator();
 
 export default function MainNavigator() {
-  const [isAuth, setIsAuth] = useState(false);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
 
-  onAuthStateChanged(auth, (user) => {
-    setIsAuth(!!user);
-  });
-
-  if (!isAuth)
+  if (!isAuthenticated)
     return (
       <MainStack.Navigator
         initialRouteName="Login"

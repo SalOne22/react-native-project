@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
-import { auth } from '~/config';
+import { useSelector } from 'react-redux';
 
 import { ProfileImage } from '~/ui/ProfileImage';
 
+import { selectUser } from '~/redux/slices/authSlice';
+
 export const UserProfileInfo = ({ style }) => {
-  const { displayName, email, photoURL } = auth.currentUser;
+  const { username, email, picture } = useSelector(selectUser) ?? {};
 
   return (
     <View style={[styles.container, style]}>
-      <ProfileImage source={{ uri: photoURL }} />
+      <ProfileImage source={{ uri: picture }} />
       <View>
-        <Text style={styles.username}>{displayName}</Text>
+        <Text style={styles.username}>{username}</Text>
         <Text style={styles.email}>{email}</Text>
       </View>
     </View>

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfileImage';
 import { Input } from '~/components/inputs/Input';
@@ -13,8 +14,11 @@ import { ErrorText } from '~/ui/typography/ErrorText';
 
 import { parseAuthError, uploadImage } from '~/utils';
 import { auth } from '~/config';
+import { setUser } from '~/redux/slices/authSlice';
 
 export const RegistrationForm = ({ style }) => {
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
@@ -42,6 +46,11 @@ export const RegistrationForm = ({ style }) => {
         displayName: username,
         photoURL: picture && (await uploadImage('profile_images', picture.uri)),
       });
+
+      const { photoURL, uid, email: userEmail } = credentials.user;
+
+      dispatch(setUser({ uid, username, email: userEmail, picture: photoURL }));
+
       reset();
     } catch (err) {
       const [name, message] = parseAuthError(err);

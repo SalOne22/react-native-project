@@ -6,9 +6,9 @@ import commentsReducer from './slices/commentsSlice';
 
 export const store = configureStore({
   reducer: {
-    authReducer,
-    postsReducer,
-    commentsReducer,
+    auth: authReducer,
+    posts: postsReducer,
+    comments: commentsReducer,
   },
   middleware: (getDM) =>
     getDM({

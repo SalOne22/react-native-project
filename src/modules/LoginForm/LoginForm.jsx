@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import { Input } from '~/components/inputs/Input';
 import { PasswordInput } from '~/components/inputs/PasswordInput';
@@ -12,8 +13,11 @@ import { ErrorText } from '~/ui/typography/ErrorText';
 
 import { parseAuthError } from '~/utils';
 import { auth } from '~/config';
+import { setUser } from '~/redux/slices/authSlice';
 
 export const LoginForm = ({ style }) => {
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
@@ -32,7 +36,11 @@ export const LoginForm = ({ style }) => {
       email = email.trim();
       password = password.trim();
 
-      await signInWithEmailAndPassword(auth, email, password);
+      const credentials = await signInWithEmailAndPassword(auth, email, password);
+
+      const { uid, displayName: username, photoURL: picture, email: userEmail } = credentials.user;
+
+      dispatch(setUser({ uid, username, email: userEmail, picture }));
 
       reset();
     } catch (err) {
