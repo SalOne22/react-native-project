@@ -20,11 +20,14 @@ const slice = createSlice({
       state.user = action.payload;
       state.isAuthenticated = !!action.payload;
     },
+    updateUser: (state, action) => {
+      state.user = { ...state.user, ...action.payload };
+    },
   },
 });
 
 export const selectUser = (state) => state.auth.user;
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
 
-export const { setUser } = slice.actions;
+export const { setUser, updateUser } = slice.actions;
 export default persistReducer(persistConfig, slice.reducer);

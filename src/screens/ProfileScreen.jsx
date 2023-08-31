@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProfile } from 'firebase/auth';
 
 import bgImage from '@/assets/images/PhotoBG.jpg';
-import userProfileImage from '@/assets/images/userProfile.jpg';
 
 import { ChangeableProfileImage } from '~/components/changeable/ChangeableProfileImage';
 import { LogoutButton } from '~/components/buttons/LogoutButton';
@@ -13,16 +14,37 @@ import { StaticModal } from '~/ui/wrappers/StaticModal';
 
 import { posts } from '~/mock/posts';
 
+import { auth } from '~/config';
+import { uploadImage } from '~/utils';
+
+import { selectUser, updateUser } from '~/redux/slices/authSlice';
+
 export default function ProfileScreen() {
+  const dispatch = useDispatch();
+  const { picture: pictureURL, username } = useSelector(selectUser) ?? {};
+
+  const updateProfilePicture = async (picture) => {
+    const photoURL = picture && (await uploadImage('profile_images', picture.uri));
+
+    await updateProfile(auth.currentUser, {
+      photoURL,
+    });
+
+    dispatch(updateUser({ picture: photoURL }));
+  };
+
   return (
     <Background image={bgImage}>
       <StaticModal style={styles.modal}>
-        {/* Убрать source - появиться пустая картинка */}
-        <ChangeableProfileImage style={styles.profileImage} source={userProfileImage} />
+        <ChangeableProfileImage
+          style={styles.profileImage}
+          source={pictureURL && { uri: pictureURL }}
+          setSource={updateProfilePicture}
+        />
         <View style={styles.logoutButton}>
           <LogoutButton />
         </View>
-        <Text style={styles.header}>Natali Romanova</Text>
+        <Text style={styles.header}>{username}</Text>
         <PostList posts={posts} showLikes />
       </StaticModal>
     </Background>
