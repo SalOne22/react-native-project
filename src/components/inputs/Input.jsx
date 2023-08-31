@@ -2,7 +2,15 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export const Input = ({ style, placeholder, autoComplete, hidden, value, onChangeText }) => {
+export const Input = ({
+  style,
+  placeholder,
+  autoComplete,
+  keyboardType,
+  hidden,
+  value,
+  onChangeText,
+}) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -14,6 +22,7 @@ export const Input = ({ style, placeholder, autoComplete, hidden, value, onChang
       onBlur={() => setFocused(false)}
       secureTextEntry={hidden}
       autoComplete={autoComplete}
+      keyboardType={keyboardType}
       value={value}
       onChangeText={onChangeText}
     />
@@ -24,6 +33,7 @@ Input.propTypes = {
   style: PropTypes.object,
   placeholder: PropTypes.string,
   autoComplete: PropTypes.string,
+  keyboardType: PropTypes.string,
   hidden: PropTypes.bool,
   value: PropTypes.string,
   onChangeText: PropTypes.func,

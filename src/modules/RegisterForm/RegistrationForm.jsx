@@ -98,6 +98,7 @@ export const RegistrationForm = ({ style }) => {
           render={({ field: { onChange, value } }) => (
             <Input
               autoComplete="email"
+              keyboardType="email-address"
               placeholder="Адреса електронної пошти"
               onChangeText={onChange}
               value={value}

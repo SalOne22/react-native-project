@@ -15,5 +15,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     width: 60,
     height: 60,
+    backgroundColor: '#f6f6f6',
   },
 });

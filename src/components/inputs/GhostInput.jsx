@@ -6,6 +6,7 @@ export const GhostInput = ({
   style,
   placeholder,
   autoComplete,
+  keyboardType,
   hidden,
   value,
   onChangeText,
@@ -30,6 +31,7 @@ export const GhostInput = ({
         onBlur={() => setFocused(false)}
         secureTextEntry={hidden}
         autoComplete={autoComplete}
+        keyboardType={keyboardType}
         value={value}
         onChangeText={onChangeText}
       />
@@ -46,6 +48,7 @@ export const GhostInput = ({
         onBlur={() => setFocused(false)}
         secureTextEntry={hidden}
         autoComplete={autoComplete}
+        keyboardType={keyboardType}
         value={value}
         onChangeText={onChangeText}
       />
@@ -57,6 +60,7 @@ GhostInput.propTypes = {
   style: PropTypes.object,
   placeholder: PropTypes.string,
   autoComplete: PropTypes.string,
+  keyboardType: PropTypes.string,
   hidden: PropTypes.bool,
   value: PropTypes.string,
   onChangeText: PropTypes.func,
