@@ -5,6 +5,7 @@ export const parseAuthError = (err) => {
       return ['email', 'Цей емаіл вже зайнятий'];
 
     case 'auth/invalid-email':
+    case 'auth/invalid-login-credentials':
     case 'auth/wrong-password':
     case 'auth/user-not-found':
       return ['root', 'Невірний емаіл або пароль'];

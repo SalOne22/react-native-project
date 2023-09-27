@@ -13,7 +13,9 @@ import { DeleteButton } from '~/components/buttons/DeleteButton';
 
 import { Button } from '~/ui/buttons/Button';
 import { ErrorText } from '~/ui/typography/ErrorText';
+import { uploadPost } from '~/utils';
 
+// FIXME: Надо нормально обрабатывать ошибки
 export const CreatePostForm = ({ style }) => {
   const navigation = useNavigation();
 
@@ -46,9 +48,15 @@ export const CreatePostForm = ({ style }) => {
 
     const { coords } = await Location.getCurrentPositionAsync();
 
-    console.log({ ...data, geolocation: coords });
-    reset();
-    navigation.navigate('Posts');
+    try {
+      const postId = await uploadPost({ ...data, geolocation: coords });
+
+      console.log(postId);
+      reset();
+      navigation.navigate('Posts');
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
