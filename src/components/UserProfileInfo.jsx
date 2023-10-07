@@ -23,8 +23,8 @@ export const UserProfileInfo = ({ style }) => {
 UserProfileInfo.propTypes = {
   style: PropTypes.object,
   profileImage: PropTypes.any,
-  username: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  username: PropTypes.string,
+  email: PropTypes.string,
 };
 
 const styles = StyleSheet.create({

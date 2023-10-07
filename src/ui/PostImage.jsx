@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Image, StyleSheet } from 'react-native';
 
 export const PostImage = ({ style, image }) => {
-  return <Image style={[styles.image, style]} source={image} />;
+  return <Image style={[styles.image, style]} source={{ uri: image }} />;
 };
 
 PostImage.propTypes = {

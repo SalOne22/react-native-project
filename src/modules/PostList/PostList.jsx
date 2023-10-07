@@ -32,7 +32,7 @@ export const PostList = ({ posts = [], showLikes = false }) => {
 PostList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ),
   showLikes: PropTypes.bool,
