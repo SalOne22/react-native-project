@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 
+import { useSelector } from 'react-redux';
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 
 import { Comment } from './Comment';
 
+import { selectUser } from '~/redux/slices/authSlice';
+
 export const CommentList = ({ comments }) => {
-  const currentUserId = 202; // TODO: Здесь должен быть актуальный id
+  const { uid } = useSelector(selectUser) ?? {};
 
   return (
     <SafeAreaView style={styles.container}>
@@ -16,7 +19,7 @@ export const CommentList = ({ comments }) => {
             userPicture={userPicture}
             content={content}
             timestamp={timestamp}
-            right={userId === currentUserId}
+            right={userId === uid}
           />
         )}
         keyExtractor={(item) => item.id}
