@@ -4,9 +4,10 @@ import { uploadImage } from './uploadImage';
 
 import { db } from '~/config';
 
-export const uploadPost = async ({ image, title, geolocation, location }) => {
+export const uploadPost = async ({ owner, image, title, geolocation, location }) => {
   const imageUrl = await uploadImage('posts', image.uri);
   const postDocRef = await addDoc(collection(db, 'posts'), {
+    owner,
     image: imageUrl,
     title: title.trim(),
     comments: [],

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import * as Location from 'expo-location';
 
+import { useSelector } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -13,10 +14,13 @@ import { DeleteButton } from '~/components/buttons/DeleteButton';
 
 import { Button } from '~/ui/buttons/Button';
 import { ErrorText } from '~/ui/typography/ErrorText';
+
+import { selectUser } from '~/redux/slices/authSlice';
 import { uploadPost } from '~/utils';
 
 // FIXME: Надо нормально обрабатывать ошибки
 export const CreatePostForm = ({ style }) => {
+  const { uid } = useSelector(selectUser) ?? {};
   const navigation = useNavigation();
 
   const {
@@ -49,7 +53,7 @@ export const CreatePostForm = ({ style }) => {
     const { coords } = await Location.getCurrentPositionAsync();
 
     try {
-      const postId = await uploadPost({ ...data, geolocation: coords });
+      const postId = await uploadPost({ ...data, geolocation: coords, owner: uid });
 
       console.log(postId);
       reset();
@@ -110,6 +114,7 @@ export const CreatePostForm = ({ style }) => {
         style={styles.submitButton}
         title="Опублікувати"
         disabled={!isValid || isSubmitting}
+        loading={isSubmitting}
         onPress={handleSubmit(onSubmit)}
       />
       <DeleteButton style={styles.deleteButton} onPress={() => reset()} />
