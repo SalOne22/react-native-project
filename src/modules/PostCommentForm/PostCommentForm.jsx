@@ -1,15 +1,20 @@
 import PropTypes from 'prop-types';
 
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Feather } from '@expo/vector-icons';
 
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 
-export const PostCommentForm = ({ style }) => {
+import { uploadComment } from '~/utils/uploadComment';
+import { selectUser } from '~/redux/slices/authSlice';
+
+export const PostCommentForm = ({ style, postId }) => {
+  const user = useSelector(selectUser) ?? {};
   const [comment, setComment] = useState('');
 
   const onSubmit = () => {
-    console.log({ comment: comment.trim() });
+    uploadComment(postId, user, comment.trim());
     setComment('');
   };
 
@@ -33,6 +38,7 @@ export const PostCommentForm = ({ style }) => {
 
 PostCommentForm.propTypes = {
   style: PropTypes.object,
+  postId: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

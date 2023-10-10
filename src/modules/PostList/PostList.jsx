@@ -9,9 +9,10 @@ export const PostList = ({ posts = [], showLikes = false }) => {
       <FlatList
         data={posts}
         renderItem={({
-          item: { comments, image, location, geolocation, title, likes, isLiked },
+          item: { id, comments, image, location, geolocation, title, likes, isLiked },
         }) => (
           <Post
+            id={id}
             comments={comments}
             image={image}
             location={location}
