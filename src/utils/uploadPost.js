@@ -10,8 +10,7 @@ export const uploadPost = async ({ owner, image, title, geolocation, location })
     owner,
     image: imageUrl,
     title: title.trim(),
-    comments: [],
-    likes: 0,
+    likes: [],
     geolocation: {
       latitude: geolocation.latitude,
       longitude: geolocation.longitude,
