@@ -12,16 +12,18 @@ import { PostList } from '~/modules/PostList';
 import { Background } from '~/ui/wrappers/Background';
 import { StaticModal } from '~/ui/wrappers/StaticModal';
 
-import { posts } from '~/mock/posts';
-
 import { auth } from '~/config';
 import { uploadImage } from '~/utils';
+import { usePosts } from '~/hooks';
 
 import { selectUser, updateUser } from '~/redux/slices/authSlice';
 
 export default function ProfileScreen() {
   const dispatch = useDispatch();
-  const { picture: pictureURL, username } = useSelector(selectUser) ?? {};
+
+  const { picture: pictureURL, username, uid } = useSelector(selectUser) ?? {};
+
+  const posts = usePosts('owner', uid);
 
   const updateProfilePicture = async (picture) => {
     const photoURL = picture && (await uploadImage('profile_images', picture.uri));
