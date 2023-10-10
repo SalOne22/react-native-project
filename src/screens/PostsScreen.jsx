@@ -14,7 +14,7 @@ export default function PostsScreen() {
   return (
     <Container style={styles.container}>
       <UserProfileInfo style={styles.userProfile} />
-      <PostList posts={posts} />
+      <PostList posts={posts} showLikes />
     </Container>
   );
 }

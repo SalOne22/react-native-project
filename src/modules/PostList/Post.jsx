@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { PostImage } from '~/ui/PostImage';
+import { updatePostLike } from '~/utils/updatePostLike';
+import { selectUser } from '~/redux/slices/authSlice';
 
 export const Post = ({
   id,
@@ -16,6 +19,7 @@ export const Post = ({
   isLiked = false,
   showLikes = true,
 }) => {
+  const { uid } = useSelector(selectUser) ?? {};
   const navigation = useNavigation();
 
   return (
@@ -33,7 +37,9 @@ export const Post = ({
         </TouchableOpacity>
         {showLikes && (
           <View style={styles.item}>
-            <Feather name="thumbs-up" size={24} color={isLiked ? '#ff6c00' : '#bdbdbd'} />
+            <TouchableOpacity onPress={() => updatePostLike(id, !isLiked, uid)}>
+              <Feather name="thumbs-up" size={24} color={isLiked ? '#ff6c00' : '#bdbdbd'} />
+            </TouchableOpacity>
             <Text style={[styles.itemText, likes > 0 && styles.accent]}>{likes}</Text>
           </View>
         )}

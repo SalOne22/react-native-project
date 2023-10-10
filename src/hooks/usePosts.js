@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { collection, onSnapshot, getCountFromServer, query, where } from 'firebase/firestore';
 
 import { db } from '~/config';
+import { selectUser } from '~/redux/slices/authSlice';
 
 export const usePosts = (field, filter) => {
+  const { uid } = useSelector(selectUser) ?? {};
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -18,7 +21,15 @@ export const usePosts = (field, filter) => {
               query(collection(db, 'comments'), where('postId', '==', doc.id)),
             );
 
-            return { id: doc.id, ...doc.data(), comments: snapshot.data().count };
+            const { likes, ...data } = doc.data();
+
+            return {
+              id: doc.id,
+              ...data,
+              comments: snapshot.data().count,
+              likes: likes.length,
+              isLiked: likes.includes(uid),
+            };
           }),
         );
         setPosts(posts);
