@@ -6,6 +6,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { PostImage } from '~/ui/PostImage';
 
 export const Post = ({
+  id,
   image,
   title,
   comments,
@@ -25,16 +26,10 @@ export const Post = ({
         <TouchableOpacity
           style={styles.item}
           activeOpacity={0.6}
-          onPress={() => navigation.navigate('Comments', { image, comments })}
+          onPress={() => navigation.navigate('Comments', { id })}
         >
-          <Feather
-            name="message-circle"
-            size={24}
-            color={comments.length > 0 ? '#ff6c00' : '#bdbdbd'}
-          />
-          <Text style={[styles.itemText, comments.length > 0 && styles.accent]}>
-            {comments.length}
-          </Text>
+          <Feather name="message-circle" size={24} color={comments > 0 ? '#ff6c00' : '#bdbdbd'} />
+          <Text style={[styles.itemText, comments > 0 && styles.accent]}>{comments}</Text>
         </TouchableOpacity>
         {showLikes && (
           <View style={styles.item}>
@@ -61,17 +56,10 @@ export const Post = ({
 };
 
 Post.propTypes = {
+  id: PropTypes.string.isRequired,
   image: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
-  comments: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      userPicture: PropTypes.any,
-      userId: PropTypes.number.isRequired,
-      content: PropTypes.string.isRequired,
-      timestamp: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  comments: PropTypes.number.isRequired,
   likes: PropTypes.number,
   location: PropTypes.string.isRequired,
   geolocation: PropTypes.exact({

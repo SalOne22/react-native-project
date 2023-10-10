@@ -7,7 +7,7 @@ import { formatDate } from '~/utils';
 export const Comment = ({ userPicture, content, timestamp, right = false }) => {
   return (
     <View style={[styles.container, right && { flexDirection: 'row-reverse' }]}>
-      <Image style={styles.userPicture} source={userPicture} />
+      <Image style={styles.userPicture} source={{ uri: userPicture }} />
       <View
         style={[styles.commentBlock, right ? styles.commentBlockRight : styles.commentBlockLeft]}
       >
@@ -23,7 +23,7 @@ export const Comment = ({ userPicture, content, timestamp, right = false }) => {
 Comment.propTypes = {
   userPicture: PropTypes.any,
   content: PropTypes.string.isRequired,
-  timestamp: PropTypes.string.isRequired,
+  timestamp: PropTypes.number,
   right: PropTypes.bool,
 };
 

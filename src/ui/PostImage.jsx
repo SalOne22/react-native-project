@@ -7,7 +7,7 @@ export const PostImage = ({ style, image }) => {
 
 PostImage.propTypes = {
   style: PropTypes.object,
-  image: PropTypes.any.isRequired,
+  image: PropTypes.any,
 };
 
 const styles = StyleSheet.create({
