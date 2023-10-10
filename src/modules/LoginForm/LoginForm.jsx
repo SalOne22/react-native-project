@@ -59,6 +59,7 @@ export const LoginForm = ({ style }) => {
           rules={{ required: "Це поле - обов'язкове" }}
           render={({ field: { onChange, value } }) => (
             <Input
+              autoCapitalize="none"
               autoComplete="email"
               keyboardType="email-address"
               placeholder="Адреса електронної пошти"

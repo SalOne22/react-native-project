@@ -10,6 +10,7 @@ export const Input = ({
   hidden,
   value,
   onChangeText,
+  ...props
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -25,6 +26,7 @@ export const Input = ({
       keyboardType={keyboardType}
       value={value}
       onChangeText={onChangeText}
+      {...props}
     />
   );
 };

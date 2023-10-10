@@ -13,6 +13,7 @@ export const PasswordInput = ({ style, value, onChangeText, isNew = false }) => 
     <View style={[styles.passwordWrapper, style]}>
       <Input
         placeholder="Пароль"
+        autoCapitalize="none"
         autoComplete={isNew ? 'new-password' : 'current-password'}
         hidden={!isPasswordShown}
         value={value}
